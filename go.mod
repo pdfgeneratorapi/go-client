@@ -1,4 +1,4 @@
-module github.com/pdfgeneratorapi/go-client/v4
+module github.com/pdfgeneratorapi/go-client/v8
 
 go 1.18
 

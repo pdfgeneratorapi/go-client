@@ -251,7 +251,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import pdfgeneratorapi "github.com/pdfgeneratorapi/go-client/v4"
+import pdfgeneratorapi "github.com/pdfgeneratorapi/go-client/v8"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

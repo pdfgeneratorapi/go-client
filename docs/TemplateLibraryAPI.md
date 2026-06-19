@@ -26,7 +26,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/pdfgeneratorapi/go-client/v4"
+	openapiclient "github.com/pdfgeneratorapi/go-client/v8"
 )
 
 func main() {
@@ -92,7 +92,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/pdfgeneratorapi/go-client/v4"
+	openapiclient "github.com/pdfgeneratorapi/go-client/v8"
 )
 
 func main() {

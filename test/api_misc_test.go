@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/pdfgeneratorapi/go-client/v4"
+	openapiclient "github.com/pdfgeneratorapi/go-client/v8"
 )
 
 func Test_pdfgeneratorapi_MiscAPIService(t *testing.T) {

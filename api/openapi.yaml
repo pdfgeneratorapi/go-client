@@ -233,6 +233,9 @@ info:
     | You can make up to 2 requests per second and 60 requests per minute.   |
 
     *  *  *  *  *
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
   title: PDF Generator API
   version: 4.0.25
   x-logo:
