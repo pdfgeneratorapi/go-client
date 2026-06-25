@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | Pointer to [**FormConfiguration**](FormConfiguration.md) |  | [optional] 
+**Response** | Pointer to [**[]DocumentAction**](DocumentAction.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetResponse
 
-`func (o *InlineObject17) GetResponse() FormConfiguration`
+`func (o *InlineObject17) GetResponse() []DocumentAction`
 
 GetResponse returns the Response field if non-nil, zero value otherwise.
 
 ### GetResponseOk
 
-`func (o *InlineObject17) GetResponseOk() (*FormConfiguration, bool)`
+`func (o *InlineObject17) GetResponseOk() (*[]DocumentAction, bool)`
 
 GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponse
 
-`func (o *InlineObject17) SetResponse(v FormConfiguration)`
+`func (o *InlineObject17) SetResponse(v []DocumentAction)`
 
 SetResponse sets Response field to given value.
 

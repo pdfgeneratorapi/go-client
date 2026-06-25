@@ -77,7 +77,7 @@ No authorization required
 
 ## GetTemplateLibraryItem
 
-> InlineObject16 GetTemplateLibraryItem(ctx, publicId).Execute()
+> InlineObject18 GetTemplateLibraryItem(ctx, publicId).Execute()
 
 Open template from the library
 
@@ -105,7 +105,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplateLibraryAPI.GetTemplateLibraryItem``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTemplateLibraryItem`: InlineObject16
+	// response from `GetTemplateLibraryItem`: InlineObject18
 	fmt.Fprintf(os.Stdout, "Response from `TemplateLibraryAPI.GetTemplateLibraryItem`: %v\n", resp)
 }
 ```
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 

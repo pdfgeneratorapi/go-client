@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Message** | Pointer to **string** | Error description | [optional] 
-**Errors** | Pointer to **map[string]interface{}** | Details about validation errors | [optional] 
 
 ## Methods
 
@@ -50,31 +49,6 @@ SetMessage sets Message field to given value.
 `func (o *InlineObject25) HasMessage() bool`
 
 HasMessage returns a boolean if a field has been set.
-
-### GetErrors
-
-`func (o *InlineObject25) GetErrors() map[string]interface{}`
-
-GetErrors returns the Errors field if non-nil, zero value otherwise.
-
-### GetErrorsOk
-
-`func (o *InlineObject25) GetErrorsOk() (*map[string]interface{}, bool)`
-
-GetErrorsOk returns a tuple with the Errors field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetErrors
-
-`func (o *InlineObject25) SetErrors(v map[string]interface{})`
-
-SetErrors sets Errors field to given value.
-
-### HasErrors
-
-`func (o *InlineObject25) HasErrors() bool`
-
-HasErrors returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | Pointer to **string** | Error description | [optional] 
+**Response** | Pointer to [**InlineObject22Response**](InlineObject22Response.md) |  | [optional] 
 
 ## Methods
 
@@ -25,30 +25,30 @@ NewInlineObject22WithDefaults instantiates a new InlineObject22 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetMessage
+### GetResponse
 
-`func (o *InlineObject22) GetMessage() string`
+`func (o *InlineObject22) GetResponse() InlineObject22Response`
 
-GetMessage returns the Message field if non-nil, zero value otherwise.
+GetResponse returns the Response field if non-nil, zero value otherwise.
 
-### GetMessageOk
+### GetResponseOk
 
-`func (o *InlineObject22) GetMessageOk() (*string, bool)`
+`func (o *InlineObject22) GetResponseOk() (*InlineObject22Response, bool)`
 
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMessage
+### SetResponse
 
-`func (o *InlineObject22) SetMessage(v string)`
+`func (o *InlineObject22) SetResponse(v InlineObject22Response)`
 
-SetMessage sets Message field to given value.
+SetResponse sets Response field to given value.
 
-### HasMessage
+### HasResponse
 
-`func (o *InlineObject22) HasMessage() bool`
+`func (o *InlineObject22) HasResponse() bool`
 
-HasMessage returns a boolean if a field has been set.
+HasResponse returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | Pointer to **string** | Public URL for form data collection | [optional] 
-**Meta** | Pointer to [**InlineObject18Meta**](InlineObject18Meta.md) |  | [optional] 
+**Response** | Pointer to [**TemplateDefinition**](TemplateDefinition.md) |  | [optional] 
+**Meta** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetResponse
 
-`func (o *InlineObject18) GetResponse() string`
+`func (o *InlineObject18) GetResponse() TemplateDefinition`
 
 GetResponse returns the Response field if non-nil, zero value otherwise.
 
 ### GetResponseOk
 
-`func (o *InlineObject18) GetResponseOk() (*string, bool)`
+`func (o *InlineObject18) GetResponseOk() (*TemplateDefinition, bool)`
 
 GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponse
 
-`func (o *InlineObject18) SetResponse(v string)`
+`func (o *InlineObject18) SetResponse(v TemplateDefinition)`
 
 SetResponse sets Response field to given value.
 
@@ -53,20 +53,20 @@ HasResponse returns a boolean if a field has been set.
 
 ### GetMeta
 
-`func (o *InlineObject18) GetMeta() InlineObject18Meta`
+`func (o *InlineObject18) GetMeta() map[string]interface{}`
 
 GetMeta returns the Meta field if non-nil, zero value otherwise.
 
 ### GetMetaOk
 
-`func (o *InlineObject18) GetMetaOk() (*InlineObject18Meta, bool)`
+`func (o *InlineObject18) GetMetaOk() (*map[string]interface{}, bool)`
 
 GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMeta
 
-`func (o *InlineObject18) SetMeta(v InlineObject18Meta)`
+`func (o *InlineObject18) SetMeta(v map[string]interface{})`
 
 SetMeta sets Meta field to given value.
 
