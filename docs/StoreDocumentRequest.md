@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FileBase64** | Pointer to **string** | Base64 encoded PDF file. Required if file_url is not provided. | [optional] 
 **FileUrl** | Pointer to **string** | Public HTTPS URL to a PDF file. Required if file_base64 is not provided. | [optional] 
+**Prefill** | Pointer to [**PrefillParam**](PrefillParam.md) |  | [optional] 
 **Name** | Pointer to **string** | Generated document name (optional) | [optional] [default to ""]
 **Output** | Pointer to **string** | Response format. &#x60;url&#x60; returns a public URL to the stored document; &#x60;viewer&#x60; returns a public URL to the PDF viewer. | [optional] [default to "url"]
 
@@ -77,6 +78,31 @@ SetFileUrl sets FileUrl field to given value.
 `func (o *StoreDocumentRequest) HasFileUrl() bool`
 
 HasFileUrl returns a boolean if a field has been set.
+
+### GetPrefill
+
+`func (o *StoreDocumentRequest) GetPrefill() PrefillParam`
+
+GetPrefill returns the Prefill field if non-nil, zero value otherwise.
+
+### GetPrefillOk
+
+`func (o *StoreDocumentRequest) GetPrefillOk() (*PrefillParam, bool)`
+
+GetPrefillOk returns a tuple with the Prefill field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefill
+
+`func (o *StoreDocumentRequest) SetPrefill(v PrefillParam)`
+
+SetPrefill sets Prefill field to given value.
+
+### HasPrefill
+
+`func (o *StoreDocumentRequest) HasPrefill() bool`
+
+HasPrefill returns a boolean if a field has been set.
 
 ### GetName
 

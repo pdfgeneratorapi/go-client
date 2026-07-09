@@ -83,6 +83,20 @@ func Test_pdfgeneratorapi_DocumentsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test DocumentsAPIService GenerateViewerUrl", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var publicId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.GenerateViewerUrl(context.Background(), publicId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DocumentsAPIService GetAsyncJobStatus", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

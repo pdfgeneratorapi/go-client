@@ -4,11 +4,12 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteDocument**](DocumentsAPI.md#DeleteDocument) | **Delete** /documents/{publicId}/actions | Delete document
+[**DeleteDocument**](DocumentsAPI.md#DeleteDocument) | **Delete** /documents/{publicId} | Delete document
 [**GenerateDocument**](DocumentsAPI.md#GenerateDocument) | **Post** /documents/generate | Generate document
 [**GenerateDocumentAsynchronous**](DocumentsAPI.md#GenerateDocumentAsynchronous) | **Post** /documents/generate/async | Generate document (async)
 [**GenerateDocumentBatch**](DocumentsAPI.md#GenerateDocumentBatch) | **Post** /documents/generate/batch | Generate document (batch)
 [**GenerateDocumentBatchAsynchronous**](DocumentsAPI.md#GenerateDocumentBatchAsynchronous) | **Post** /documents/generate/batch/async | Generate document (batch + async)
+[**GenerateViewerUrl**](DocumentsAPI.md#GenerateViewerUrl) | **Post** /documents/{publicId} | Get document with prefill
 [**GetAsyncJobStatus**](DocumentsAPI.md#GetAsyncJobStatus) | **Get** /documents/async/{jobId} | Get job status
 [**GetDocument**](DocumentsAPI.md#GetDocument) | **Get** /documents/{publicId} | Get document
 [**GetDocumentActions**](DocumentsAPI.md#GetDocumentActions) | **Get** /documents/{publicId}/actions | Get document actions
@@ -335,6 +336,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InlineObject22**](InlineObject22.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateViewerUrl
+
+> GenerateViewerUrl200Response GenerateViewerUrl(ctx, publicId).GenerateViewerUrlRequest(generateViewerUrlRequest).Execute()
+
+Get document with prefill
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/pdfgeneratorapi/go-client/v8"
+)
+
+func main() {
+	publicId := "bac8381bce1982e5f6957a0f52371336" // string | Resource public id
+	generateViewerUrlRequest := *openapiclient.NewGenerateViewerUrlRequest() // GenerateViewerUrlRequest | Optional response format and viewer prefill data. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DocumentsAPI.GenerateViewerUrl(context.Background(), publicId).GenerateViewerUrlRequest(generateViewerUrlRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GenerateViewerUrl``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GenerateViewerUrl`: GenerateViewerUrl200Response
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GenerateViewerUrl`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**publicId** | **string** | Resource public id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGenerateViewerUrlRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **generateViewerUrlRequest** | [**GenerateViewerUrlRequest**](GenerateViewerUrlRequest.md) | Optional response format and viewer prefill data. | 
+
+### Return type
+
+[**GenerateViewerUrl200Response**](GenerateViewerUrl200Response.md)
 
 ### Authorization
 

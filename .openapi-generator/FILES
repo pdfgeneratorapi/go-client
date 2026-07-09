@@ -65,6 +65,9 @@ docs/GenerateDocumentRequest.md
 docs/GenerateQRCode201Response.md
 docs/GenerateQRCode201ResponseMeta.md
 docs/GenerateQRCodeRequest.md
+docs/GenerateViewerUrl200Response.md
+docs/GenerateViewerUrl200ResponseMeta.md
+docs/GenerateViewerUrlRequest.md
 docs/GetStatus200Response.md
 docs/GetTemplateLibrary200Response.md
 docs/GetTemplateVersion422Response.md
@@ -131,6 +134,7 @@ docs/OptimizeDocumentRequest.md
 docs/OptimizeUrl.md
 docs/OutputParam.md
 docs/PaginationMeta.md
+docs/PrefillParam.md
 docs/PromoteTemplateVersion200Response.md
 docs/PublicTemplateLibraryItem.md
 docs/ServicesAPI.md
@@ -215,6 +219,9 @@ model_generate_document_request.go
 model_generate_qr_code_201_response.go
 model_generate_qr_code_201_response_meta.go
 model_generate_qr_code_request.go
+model_generate_viewer_url_200_response.go
+model_generate_viewer_url_200_response_meta.go
+model_generate_viewer_url_request.go
 model_get_status_200_response.go
 model_get_template_library_200_response.go
 model_get_template_version_422_response.go
@@ -280,6 +287,7 @@ model_optimize_document_request.go
 model_optimize_url.go
 model_output_param.go
 model_pagination_meta.go
+model_prefill_param.go
 model_promote_template_version_200_response.go
 model_public_template_library_item.go
 model_status_param.go
