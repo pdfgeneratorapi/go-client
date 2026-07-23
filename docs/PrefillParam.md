@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FirstName** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
 **Email** | Pointer to **string** |  | [optional] 
+**SignatureId** | Pointer to **string** |  | [optional] 
 **Editable** | Pointer to **bool** |  | [optional] [default to true]
 
 ## Methods
@@ -128,6 +129,31 @@ SetEmail sets Email field to given value.
 `func (o *PrefillParam) HasEmail() bool`
 
 HasEmail returns a boolean if a field has been set.
+
+### GetSignatureId
+
+`func (o *PrefillParam) GetSignatureId() string`
+
+GetSignatureId returns the SignatureId field if non-nil, zero value otherwise.
+
+### GetSignatureIdOk
+
+`func (o *PrefillParam) GetSignatureIdOk() (*string, bool)`
+
+GetSignatureIdOk returns a tuple with the SignatureId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSignatureId
+
+`func (o *PrefillParam) SetSignatureId(v string)`
+
+SetSignatureId sets SignatureId field to given value.
+
+### HasSignatureId
+
+`func (o *PrefillParam) HasSignatureId() bool`
+
+HasSignatureId returns a boolean if a field has been set.
 
 ### GetEditable
 
