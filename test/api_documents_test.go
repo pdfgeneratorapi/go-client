@@ -139,6 +139,20 @@ func Test_pdfgeneratorapi_DocumentsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test DocumentsAPIService GetDocumentSignatures", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var publicId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.GetDocumentSignatures(context.Background(), publicId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DocumentsAPIService GetDocumentVersions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

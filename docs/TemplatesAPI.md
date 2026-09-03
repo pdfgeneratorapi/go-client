@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## CopyTemplate
 
-> InlineObject18 CopyTemplate(ctx, templateId).CopyTemplateRequest(copyTemplateRequest).Execute()
+> InlineObject19 CopyTemplate(ctx, templateId).CopyTemplateRequest(copyTemplateRequest).Execute()
 
 Copy template
 
@@ -49,7 +49,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.CopyTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CopyTemplate`: InlineObject18
+	// response from `CopyTemplate`: InlineObject19
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.CopyTemplate`: %v\n", resp)
 }
 ```
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## CreateTemplate
 
-> InlineObject18 CreateTemplate(ctx).TemplateDefinitionNew(templateDefinitionNew).Execute()
+> InlineObject19 CreateTemplate(ctx).TemplateDefinitionNew(templateDefinitionNew).Execute()
 
 Create template
 
@@ -120,7 +120,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.CreateTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTemplate`: InlineObject18
+	// response from `CreateTemplate`: InlineObject19
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.CreateTemplate`: %v\n", resp)
 }
 ```
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ## GetTemplate
 
-> InlineObject18 GetTemplate(ctx, templateId).Execute()
+> InlineObject19 GetTemplate(ctx, templateId).Execute()
 
 Get template
 
@@ -254,7 +254,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.GetTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTemplate`: InlineObject18
+	// response from `GetTemplate`: InlineObject19
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.GetTemplate`: %v\n", resp)
 }
 ```
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 
 ## ImportTemplate
 
-> InlineObject18 ImportTemplate(ctx).ImportTemplateRequest(importTemplateRequest).Execute()
+> InlineObject19 ImportTemplate(ctx).ImportTemplateRequest(importTemplateRequest).Execute()
 
 Import template
 
@@ -529,7 +529,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.ImportTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ImportTemplate`: InlineObject18
+	// response from `ImportTemplate`: InlineObject19
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.ImportTemplate`: %v\n", resp)
 }
 ```
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -639,7 +639,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTemplate
 
-> InlineObject18 UpdateTemplate(ctx, templateId).TemplateDefinitionNew(templateDefinitionNew).Execute()
+> InlineObject19 UpdateTemplate(ctx, templateId).TemplateDefinitionNew(templateDefinitionNew).Execute()
 
 Update template
 
@@ -668,7 +668,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.UpdateTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateTemplate`: InlineObject18
+	// response from `UpdateTemplate`: InlineObject19
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.UpdateTemplate`: %v\n", resp)
 }
 ```
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 

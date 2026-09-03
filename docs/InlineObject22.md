@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | Pointer to [**InlineObject22Response**](InlineObject22Response.md) |  | [optional] 
+**Response** | Pointer to **string** | URL to open the embeddable Form Builder | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetResponse
 
-`func (o *InlineObject22) GetResponse() InlineObject22Response`
+`func (o *InlineObject22) GetResponse() string`
 
 GetResponse returns the Response field if non-nil, zero value otherwise.
 
 ### GetResponseOk
 
-`func (o *InlineObject22) GetResponseOk() (*InlineObject22Response, bool)`
+`func (o *InlineObject22) GetResponseOk() (*string, bool)`
 
 GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponse
 
-`func (o *InlineObject22) SetResponse(v InlineObject22Response)`
+`func (o *InlineObject22) SetResponse(v string)`
 
 SetResponse sets Response field to given value.
 

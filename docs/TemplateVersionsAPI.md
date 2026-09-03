@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## GetTemplateVersion
 
-> InlineObject18 GetTemplateVersion(ctx, templateId, templateVersion).Execute()
+> InlineObject19 GetTemplateVersion(ctx, templateId, templateVersion).Execute()
 
 Get template version
 
@@ -113,7 +113,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplateVersionsAPI.GetTemplateVersion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTemplateVersion`: InlineObject18
+	// response from `GetTemplateVersion`: InlineObject19
 	fmt.Fprintf(os.Stdout, "Response from `TemplateVersionsAPI.GetTemplateVersion`: %v\n", resp)
 }
 ```
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 

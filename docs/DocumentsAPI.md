@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**GetAsyncJobStatus**](DocumentsAPI.md#GetAsyncJobStatus) | **Get** /documents/async/{jobId} | Get job status
 [**GetDocument**](DocumentsAPI.md#GetDocument) | **Get** /documents/{publicId} | Get document
 [**GetDocumentActions**](DocumentsAPI.md#GetDocumentActions) | **Get** /documents/{publicId}/actions | Get document actions
+[**GetDocumentSignatures**](DocumentsAPI.md#GetDocumentSignatures) | **Get** /documents/{publicId}/signatures | Validate document signatures
 [**GetDocumentVersions**](DocumentsAPI.md#GetDocumentVersions) | **Get** /documents/{publicId}/versions | Get document versions
 [**GetDocuments**](DocumentsAPI.md#GetDocuments) | **Get** /documents | Get documents
 [**StoreDocument**](DocumentsAPI.md#StoreDocument) | **Post** /documents | Store document
@@ -155,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## GenerateDocumentAsynchronous
 
-> InlineObject22 GenerateDocumentAsynchronous(ctx).GenerateDocumentAsynchronousRequest(generateDocumentAsynchronousRequest).Execute()
+> InlineObject23 GenerateDocumentAsynchronous(ctx).GenerateDocumentAsynchronousRequest(generateDocumentAsynchronousRequest).Execute()
 
 Generate document (async)
 
@@ -183,7 +184,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GenerateDocumentAsynchronous``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GenerateDocumentAsynchronous`: InlineObject22
+	// response from `GenerateDocumentAsynchronous`: InlineObject23
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GenerateDocumentAsynchronous`: %v\n", resp)
 }
 ```
@@ -203,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject22**](InlineObject22.md)
+[**InlineObject23**](InlineObject23.md)
 
 ### Authorization
 
@@ -287,7 +288,7 @@ Name | Type | Description  | Notes
 
 ## GenerateDocumentBatchAsynchronous
 
-> InlineObject22 GenerateDocumentBatchAsynchronous(ctx).GenerateDocumentBatchAsynchronousRequest(generateDocumentBatchAsynchronousRequest).Execute()
+> InlineObject23 GenerateDocumentBatchAsynchronous(ctx).GenerateDocumentBatchAsynchronousRequest(generateDocumentBatchAsynchronousRequest).Execute()
 
 Generate document (batch + async)
 
@@ -315,7 +316,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GenerateDocumentBatchAsynchronous``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GenerateDocumentBatchAsynchronous`: InlineObject22
+	// response from `GenerateDocumentBatchAsynchronous`: InlineObject23
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GenerateDocumentBatchAsynchronous`: %v\n", resp)
 }
 ```
@@ -335,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject22**](InlineObject22.md)
+[**InlineObject23**](InlineObject23.md)
 
 ### Authorization
 
@@ -565,7 +566,7 @@ Name | Type | Description  | Notes
 
 ## GetDocumentActions
 
-> InlineObject17 GetDocumentActions(ctx, publicId).Execute()
+> InlineObject18 GetDocumentActions(ctx, publicId).Execute()
 
 Get document actions
 
@@ -593,7 +594,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocumentActions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetDocumentActions`: InlineObject17
+	// response from `GetDocumentActions`: InlineObject18
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocumentActions`: %v\n", resp)
 }
 ```
@@ -614,6 +615,78 @@ Other parameters are passed through a pointer to a apiGetDocumentActionsRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+### Return type
+
+[**InlineObject18**](InlineObject18.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDocumentSignatures
+
+> InlineObject17 GetDocumentSignatures(ctx, publicId).Version(version).Execute()
+
+Validate document signatures
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/pdfgeneratorapi/go-client/v8"
+)
+
+func main() {
+	publicId := "bac8381bce1982e5f6957a0f52371336" // string | Resource public id
+	version := "5f3c2b1a9d8e7f6a" // string | Which stored version to report on. A version identifier reports on that version, `initial` on the document as first generated. Defaults to the latest version. A version is always reported on as itself: reporting the latest would describe bytes the caller is not holding.  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DocumentsAPI.GetDocumentSignatures(context.Background(), publicId).Version(version).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocumentSignatures``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDocumentSignatures`: InlineObject17
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocumentSignatures`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**publicId** | **string** | Resource public id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDocumentSignaturesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **version** | **string** | Which stored version to report on. A version identifier reports on that version, &#x60;initial&#x60; on the document as first generated. Defaults to the latest version. A version is always reported on as itself: reporting the latest would describe bytes the caller is not holding.  | 
 
 ### Return type
 

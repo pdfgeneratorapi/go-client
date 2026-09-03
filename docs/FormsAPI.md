@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## CreateForm
 
-> InlineObject19 CreateForm(ctx).FormConfigurationNew(formConfigurationNew).Execute()
+> InlineObject20 CreateForm(ctx).FormConfigurationNew(formConfigurationNew).Execute()
 
 Create form
 
@@ -46,7 +46,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.CreateForm``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateForm`: InlineObject19
+	// response from `CreateForm`: InlineObject20
 	fmt.Fprintf(os.Stdout, "Response from `FormsAPI.CreateForm`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## GetForm
 
-> InlineObject19 GetForm(ctx, formId).Execute()
+> InlineObject20 GetForm(ctx, formId).Execute()
 
 Get form
 
@@ -180,7 +180,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.GetForm``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetForm`: InlineObject19
+	// response from `GetForm`: InlineObject20
 	fmt.Fprintf(os.Stdout, "Response from `FormsAPI.GetForm`: %v\n", resp)
 }
 ```
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## ImportForm
 
-> InlineObject19 ImportForm(ctx).ImportFormRequest(importFormRequest).Execute()
+> InlineObject20 ImportForm(ctx).ImportFormRequest(importFormRequest).Execute()
 
 Import Form
 
@@ -318,7 +318,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.ImportForm``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ImportForm`: InlineObject19
+	// response from `ImportForm`: InlineObject20
 	fmt.Fprintf(os.Stdout, "Response from `FormsAPI.ImportForm`: %v\n", resp)
 }
 ```
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 ## OpenFormBuilder
 
-> InlineObject21 OpenFormBuilder(ctx).Execute()
+> InlineObject22 OpenFormBuilder(ctx).Execute()
 
 Open new form builder
 
@@ -383,7 +383,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.OpenFormBuilder``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `OpenFormBuilder`: InlineObject21
+	// response from `OpenFormBuilder`: InlineObject22
 	fmt.Fprintf(os.Stdout, "Response from `FormsAPI.OpenFormBuilder`: %v\n", resp)
 }
 ```
@@ -399,7 +399,7 @@ Other parameters are passed through a pointer to a apiOpenFormBuilderRequest str
 
 ### Return type
 
-[**InlineObject21**](InlineObject21.md)
+[**InlineObject22**](InlineObject22.md)
 
 ### Authorization
 
@@ -417,7 +417,7 @@ Other parameters are passed through a pointer to a apiOpenFormBuilderRequest str
 
 ## OpenFormBuilderForExistingForm
 
-> InlineObject21 OpenFormBuilderForExistingForm(ctx, formId).Execute()
+> InlineObject22 OpenFormBuilderForExistingForm(ctx, formId).Execute()
 
 Open existing form builder
 
@@ -445,7 +445,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.OpenFormBuilderForExistingForm``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `OpenFormBuilderForExistingForm`: InlineObject21
+	// response from `OpenFormBuilderForExistingForm`: InlineObject22
 	fmt.Fprintf(os.Stdout, "Response from `FormsAPI.OpenFormBuilderForExistingForm`: %v\n", resp)
 }
 ```
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject21**](InlineObject21.md)
+[**InlineObject22**](InlineObject22.md)
 
 ### Authorization
 
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 
 ## ShareForm
 
-> InlineObject20 ShareForm(ctx, formId).Execute()
+> InlineObject21 ShareForm(ctx, formId).Execute()
 
 Share form
 
@@ -515,7 +515,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.ShareForm``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ShareForm`: InlineObject20
+	// response from `ShareForm`: InlineObject21
 	fmt.Fprintf(os.Stdout, "Response from `FormsAPI.ShareForm`: %v\n", resp)
 }
 ```
@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject21**](InlineObject21.md)
 
 ### Authorization
 
@@ -557,7 +557,7 @@ Name | Type | Description  | Notes
 
 ## UpdateForm
 
-> InlineObject19 UpdateForm(ctx, formId).FormConfigurationNew(formConfigurationNew).Execute()
+> InlineObject20 UpdateForm(ctx, formId).FormConfigurationNew(formConfigurationNew).Execute()
 
 Update form
 
@@ -586,7 +586,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.UpdateForm``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateForm`: InlineObject19
+	// response from `UpdateForm`: InlineObject20
 	fmt.Fprintf(os.Stdout, "Response from `FormsAPI.UpdateForm`: %v\n", resp)
 }
 ```
@@ -611,7 +611,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 

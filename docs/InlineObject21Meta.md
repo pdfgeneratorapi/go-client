@@ -1,4 +1,4 @@
-# InlineObject20Meta
+# InlineObject21Meta
 
 ## Properties
 
@@ -8,45 +8,45 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewInlineObject20Meta
+### NewInlineObject21Meta
 
-`func NewInlineObject20Meta() *InlineObject20Meta`
+`func NewInlineObject21Meta() *InlineObject21Meta`
 
-NewInlineObject20Meta instantiates a new InlineObject20Meta object
+NewInlineObject21Meta instantiates a new InlineObject21Meta object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewInlineObject20MetaWithDefaults
+### NewInlineObject21MetaWithDefaults
 
-`func NewInlineObject20MetaWithDefaults() *InlineObject20Meta`
+`func NewInlineObject21MetaWithDefaults() *InlineObject21Meta`
 
-NewInlineObject20MetaWithDefaults instantiates a new InlineObject20Meta object
+NewInlineObject21MetaWithDefaults instantiates a new InlineObject21Meta object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetPublicId
 
-`func (o *InlineObject20Meta) GetPublicId() string`
+`func (o *InlineObject21Meta) GetPublicId() string`
 
 GetPublicId returns the PublicId field if non-nil, zero value otherwise.
 
 ### GetPublicIdOk
 
-`func (o *InlineObject20Meta) GetPublicIdOk() (*string, bool)`
+`func (o *InlineObject21Meta) GetPublicIdOk() (*string, bool)`
 
 GetPublicIdOk returns a tuple with the PublicId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPublicId
 
-`func (o *InlineObject20Meta) SetPublicId(v string)`
+`func (o *InlineObject21Meta) SetPublicId(v string)`
 
 SetPublicId sets PublicId field to given value.
 
 ### HasPublicId
 
-`func (o *InlineObject20Meta) HasPublicId() bool`
+`func (o *InlineObject21Meta) HasPublicId() bool`
 
 HasPublicId returns a boolean if a field has been set.
 
