@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FileUrl** | **string** | PDF file from remote URL to import | 
-**Form** | Pointer to [**FormConfigurationNew**](FormConfigurationNew.md) |  | [optional] 
+**Form** | Pointer to [**FormConfigurationImport**](FormConfigurationImport.md) |  | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetFileUrl sets FileUrl field to given value.
 
 ### GetForm
 
-`func (o *ImportFormUrl) GetForm() FormConfigurationNew`
+`func (o *ImportFormUrl) GetForm() FormConfigurationImport`
 
 GetForm returns the Form field if non-nil, zero value otherwise.
 
 ### GetFormOk
 
-`func (o *ImportFormUrl) GetFormOk() (*FormConfigurationNew, bool)`
+`func (o *ImportFormUrl) GetFormOk() (*FormConfigurationImport, bool)`
 
 GetFormOk returns a tuple with the Form field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetForm
 
-`func (o *ImportFormUrl) SetForm(v FormConfigurationNew)`
+`func (o *ImportFormUrl) SetForm(v FormConfigurationImport)`
 
 SetForm sets Form field to given value.
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **StoreDocument** | Pointer to **bool** |  | [optional] 
 **DownloadDocument** | Pointer to **bool** |  | [optional] 
 **SendDocument** | Pointer to [**FormActionSendSendDocument**](FormActionSendSendDocument.md) |  | [optional] 
+**SignDocument** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetSendDocument sets SendDocument field to given value.
 `func (o *FormConfigurationNewActionsInner) HasSendDocument() bool`
 
 HasSendDocument returns a boolean if a field has been set.
+
+### GetSignDocument
+
+`func (o *FormConfigurationNewActionsInner) GetSignDocument() bool`
+
+GetSignDocument returns the SignDocument field if non-nil, zero value otherwise.
+
+### GetSignDocumentOk
+
+`func (o *FormConfigurationNewActionsInner) GetSignDocumentOk() (*bool, bool)`
+
+GetSignDocumentOk returns a tuple with the SignDocument field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSignDocument
+
+`func (o *FormConfigurationNewActionsInner) SetSignDocument(v bool)`
+
+SetSignDocument sets SignDocument field to given value.
+
+### HasSignDocument
+
+`func (o *FormConfigurationNewActionsInner) HasSignDocument() bool`
+
+HasSignDocument returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

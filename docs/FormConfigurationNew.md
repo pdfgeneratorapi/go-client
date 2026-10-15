@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TemplateId** | Pointer to **int32** | Template ID which is connected to the form | [optional] 
-**Name** | Pointer to **string** | Form name | [optional] 
-**Actions** | Pointer to [**[]FormConfigurationNewActionsInner**](FormConfigurationNewActionsInner.md) | Array of action configurations | [optional] 
-**Fields** | Pointer to [**[]FormFieldsInner**](FormFieldsInner.md) | A list of form field objects | [optional] 
+**TemplateId** | Pointer to **NullableInt32** | Template ID which is connected to the form | [optional] 
+**Name** | **string** | Form name | 
+**Actions** | [**[]FormConfigurationNewActionsInner**](FormConfigurationNewActionsInner.md) | Array of action configurations. Each action is a separate object with a single key; leave an action out to disable it. | 
+**Fields** | [**[]FormField**](FormField.md) | Input fields shown on the form, in display order. Field names must be unique within the form. | 
 **Configuration** | Pointer to [**FormConfiguration**](FormConfiguration.md) |  | [optional] 
 
 ## Methods
 
 ### NewFormConfigurationNew
 
-`func NewFormConfigurationNew() *FormConfigurationNew`
+`func NewFormConfigurationNew(name string, actions []FormConfigurationNewActionsInner, fields []FormField, ) *FormConfigurationNew`
 
 NewFormConfigurationNew instantiates a new FormConfigurationNew object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +54,16 @@ SetTemplateId sets TemplateId field to given value.
 
 HasTemplateId returns a boolean if a field has been set.
 
+### SetTemplateIdNil
+
+`func (o *FormConfigurationNew) SetTemplateIdNil(b bool)`
+
+ SetTemplateIdNil sets the value for TemplateId to be an explicit nil
+
+### UnsetTemplateId
+`func (o *FormConfigurationNew) UnsetTemplateId()`
+
+UnsetTemplateId ensures that no value is present for TemplateId, not even an explicit nil
 ### GetName
 
 `func (o *FormConfigurationNew) GetName() string`
@@ -73,11 +83,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *FormConfigurationNew) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetActions
 
@@ -98,36 +103,26 @@ and a boolean to check if the value has been set.
 
 SetActions sets Actions field to given value.
 
-### HasActions
-
-`func (o *FormConfigurationNew) HasActions() bool`
-
-HasActions returns a boolean if a field has been set.
 
 ### GetFields
 
-`func (o *FormConfigurationNew) GetFields() []FormFieldsInner`
+`func (o *FormConfigurationNew) GetFields() []FormField`
 
 GetFields returns the Fields field if non-nil, zero value otherwise.
 
 ### GetFieldsOk
 
-`func (o *FormConfigurationNew) GetFieldsOk() (*[]FormFieldsInner, bool)`
+`func (o *FormConfigurationNew) GetFieldsOk() (*[]FormField, bool)`
 
 GetFieldsOk returns a tuple with the Fields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFields
 
-`func (o *FormConfigurationNew) SetFields(v []FormFieldsInner)`
+`func (o *FormConfigurationNew) SetFields(v []FormField)`
 
 SetFields sets Fields field to given value.
 
-### HasFields
-
-`func (o *FormConfigurationNew) HasFields() bool`
-
-HasFields returns a boolean if a field has been set.
 
 ### GetConfiguration
 

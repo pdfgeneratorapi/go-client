@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FileBase64** | **string** | PDF file from base64 string to import | 
-**Form** | Pointer to [**FormConfigurationNew**](FormConfigurationNew.md) |  | [optional] 
+**Form** | Pointer to [**FormConfigurationImport**](FormConfigurationImport.md) |  | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetFileBase64 sets FileBase64 field to given value.
 
 ### GetForm
 
-`func (o *ImportFormBase64) GetForm() FormConfigurationNew`
+`func (o *ImportFormBase64) GetForm() FormConfigurationImport`
 
 GetForm returns the Form field if non-nil, zero value otherwise.
 
 ### GetFormOk
 
-`func (o *ImportFormBase64) GetFormOk() (*FormConfigurationNew, bool)`
+`func (o *ImportFormBase64) GetFormOk() (*FormConfigurationImport, bool)`
 
 GetFormOk returns a tuple with the Form field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetForm
 
-`func (o *ImportFormBase64) SetForm(v FormConfigurationNew)`
+`func (o *ImportFormBase64) SetForm(v FormConfigurationImport)`
 
 SetForm sets Form field to given value.
 

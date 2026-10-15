@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateForm**](FormsAPI.md#CreateForm) | **Post** /forms | Create form
 [**DeleteForm**](FormsAPI.md#DeleteForm) | **Delete** /forms/{formId} | Delete form
 [**GetForm**](FormsAPI.md#GetForm) | **Get** /forms/{formId} | Get form
+[**GetFormSchema**](FormsAPI.md#GetFormSchema) | **Get** /forms/schema | Get schema
 [**GetForms**](FormsAPI.md#GetForms) | **Get** /forms | Get forms
 [**ImportForm**](FormsAPI.md#ImportForm) | **Post** /forms/import | Import Form
 [**OpenFormBuilder**](FormsAPI.md#OpenFormBuilder) | **Post** /forms/open | Open new form builder
@@ -37,7 +38,7 @@ import (
 )
 
 func main() {
-	formConfigurationNew := *openapiclient.NewFormConfigurationNew() // FormConfigurationNew | Form configuration
+	formConfigurationNew := *openapiclient.NewFormConfigurationNew("Certificate creator", []openapiclient.FormConfigurationNewActionsInner{*openapiclient.NewFormConfigurationNewActionsInner()}, []openapiclient.FormField{*openapiclient.NewFormField("Full name", "name", "text", false)}) // FormConfigurationNew | Form configuration
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -220,9 +221,70 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetFormSchema
+
+> map[string]interface{} GetFormSchema(ctx).Execute()
+
+Get schema
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/pdfgeneratorapi/go-client/v8"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.FormsAPI.GetFormSchema(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.GetFormSchema``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetFormSchema`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `FormsAPI.GetFormSchema`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetFormSchemaRequest struct via the builder pattern
+
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetForms
 
-> InlineObject6 GetForms(ctx).Page(page).PerPage(perPage).Execute()
+> InlineObject6 GetForms(ctx).Page(page).PerPage(perPage).OrderBy(orderBy).OrderDirection(orderDirection).Search(search).Execute()
 
 Get forms
 
@@ -243,10 +305,13 @@ import (
 func main() {
 	page := int32(1) // int32 | Pagination: page to return (optional) (default to 1)
 	perPage := int32(20) // int32 | Pagination: How many records to return per page (optional) (default to 15)
+	orderBy := "name" // string | Field to sort the forms by (optional) (default to "id")
+	orderDirection := "asc" // string | Sort direction (optional) (default to "desc")
+	search := "Certificate" // string | Returns forms whose name or ID contains the search value (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FormsAPI.GetForms(context.Background()).Page(page).PerPage(perPage).Execute()
+	resp, r, err := apiClient.FormsAPI.GetForms(context.Background()).Page(page).PerPage(perPage).OrderBy(orderBy).OrderDirection(orderDirection).Search(search).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FormsAPI.GetForms``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -269,6 +334,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int32** | Pagination: page to return | [default to 1]
  **perPage** | **int32** | Pagination: How many records to return per page | [default to 15]
+ **orderBy** | **string** | Field to sort the forms by | [default to &quot;id&quot;]
+ **orderDirection** | **string** | Sort direction | [default to &quot;desc&quot;]
+ **search** | **string** | Returns forms whose name or ID contains the search value | 
 
 ### Return type
 
@@ -577,7 +645,7 @@ import (
 
 func main() {
 	formId := int32(1) // int32 | Form unique identifier
-	formConfigurationNew := *openapiclient.NewFormConfigurationNew() // FormConfigurationNew | Form configuration
+	formConfigurationNew := *openapiclient.NewFormConfigurationNew("Certificate creator", []openapiclient.FormConfigurationNewActionsInner{*openapiclient.NewFormConfigurationNewActionsInner()}, []openapiclient.FormField{*openapiclient.NewFormField("Full name", "name", "text", false)}) // FormConfigurationNew | Form configuration
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
