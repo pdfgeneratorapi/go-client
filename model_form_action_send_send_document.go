@@ -22,7 +22,7 @@ var _ MappedNullable = &FormActionSendSendDocument{}
 
 // FormActionSendSendDocument struct for FormActionSendSendDocument
 type FormActionSendSendDocument struct {
-	// URL where the generated document will be delivered. Must use HTTPS.
+	// URL that receives the submitted answers as JSON, and the generated document when the form also stores it. Must use HTTPS.
 	Url string `json:"url"`
 	// Optional HTTP headers to include with the delivery request.
 	Headers []FormActionSendSendDocumentHeadersInner `json:"headers,omitempty"`

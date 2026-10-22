@@ -18,7 +18,7 @@ import (
 // checks if the FormActionSend type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FormActionSend{}
 
-// FormActionSend Sends the generated document via HTTP POST request to the specified URL.
+// FormActionSend Posts the submitted answers as JSON to the specified HTTPS URL. When the form also stores the document (store_document) and has a template, the request includes the generated document as well; otherwise only the answers are sent.
 type FormActionSend struct {
 	SendDocument *FormActionSendSendDocument `json:"send_document,omitempty"`
 }

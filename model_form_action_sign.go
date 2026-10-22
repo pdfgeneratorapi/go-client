@@ -18,7 +18,7 @@ import (
 // checks if the FormActionSign type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FormActionSign{}
 
-// FormActionSign Asks the person who submitted the form to sign the generated document.
+// FormActionSign Lets the person who fills in the form view and sign the generated document.
 type FormActionSign struct {
 	SignDocument *bool `json:"sign_document,omitempty"`
 }

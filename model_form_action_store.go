@@ -18,7 +18,7 @@ import (
 // checks if the FormActionStore type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FormActionStore{}
 
-// FormActionStore Key-value pair of action configuration.
+// FormActionStore Saves the generated document to Document Storage.
 type FormActionStore struct {
 	StoreDocument *bool `json:"store_document,omitempty"`
 }

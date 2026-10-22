@@ -18,7 +18,7 @@ import (
 // checks if the FormActionDownload type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FormActionDownload{}
 
-// FormActionDownload Key-value pair of action configuration.
+// FormActionDownload Lets the person who fills in the form download the generated document.
 type FormActionDownload struct {
 	DownloadDocument *bool `json:"download_document,omitempty"`
 }
