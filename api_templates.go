@@ -1678,7 +1678,7 @@ func (r ApiUpdateTemplateRequest) Execute() (*InlineObject19, *http.Response, er
 /*
 UpdateTemplate Update template
 
-Updates template configuration. The template configuration for pages and layout must be complete as the entire configuration is replaced and not merged.
+Updates template configuration. Each top-level field sent (name, layout, pages and the rest) replaces the stored one, so pages must be complete, with every component.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId Template unique identifier
