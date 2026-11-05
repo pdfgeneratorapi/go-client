@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | Pointer to **[]string** | Array of base64 encoded images, one per converted page. | [optional] 
+**Response** | Pointer to **string** | Public URL to the document. | [optional] 
 **Meta** | Pointer to [**InlineObject10Meta**](InlineObject10Meta.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetResponse
 
-`func (o *InlineObject10) GetResponse() []string`
+`func (o *InlineObject10) GetResponse() string`
 
 GetResponse returns the Response field if non-nil, zero value otherwise.
 
 ### GetResponseOk
 
-`func (o *InlineObject10) GetResponseOk() (*[]string, bool)`
+`func (o *InlineObject10) GetResponseOk() (*string, bool)`
 
 GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponse
 
-`func (o *InlineObject10) SetResponse(v []string)`
+`func (o *InlineObject10) SetResponse(v string)`
 
 SetResponse sets Response field to given value.
 

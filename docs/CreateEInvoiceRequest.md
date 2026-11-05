@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | **map[string]interface{}** | JSON payload that represents the Peppol BIS Billing 3.0 UBL Invoice (https://docs.peppol.eu/poacc/billing/3.0/) Use the Get schema endpoint to see the detailed payload structure. | 
-**Type** | Pointer to **string** | Formatting type. | [optional] [default to "UBL"]
+**Type** | Pointer to [**EInvoiceType**](EInvoiceType.md) |  | [optional] [default to EINVOICETYPE_UBL]
 **Output** | Pointer to **string** | Response format. When the \&quot;file\&quot; option is used the API returns the file inline. | [optional] [default to "base64"]
 
 ## Methods
@@ -49,20 +49,20 @@ SetData sets Data field to given value.
 
 ### GetType
 
-`func (o *CreateEInvoiceRequest) GetType() string`
+`func (o *CreateEInvoiceRequest) GetType() EInvoiceType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *CreateEInvoiceRequest) GetTypeOk() (*string, bool)`
+`func (o *CreateEInvoiceRequest) GetTypeOk() (*EInvoiceType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *CreateEInvoiceRequest) SetType(v string)`
+`func (o *CreateEInvoiceRequest) SetType(v EInvoiceType)`
 
 SetType sets Type field to given value.
 

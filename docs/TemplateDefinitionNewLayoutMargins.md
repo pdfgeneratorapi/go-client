@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Top** | Pointer to **float32** |  | [optional] 
-**Right** | Pointer to **float32** |  | [optional] 
-**Bottom** | Pointer to **float32** |  | [optional] 
-**Left** | Pointer to **float32** |  | [optional] 
+**Top** | **float32** | Top margin in units | 
+**Right** | **float32** | Right margin in units | 
+**Bottom** | **float32** | Bottom margin in units | 
+**Left** | **float32** | Left margin in units | 
 
 ## Methods
 
 ### NewTemplateDefinitionNewLayoutMargins
 
-`func NewTemplateDefinitionNewLayoutMargins() *TemplateDefinitionNewLayoutMargins`
+`func NewTemplateDefinitionNewLayoutMargins(top float32, right float32, bottom float32, left float32, ) *TemplateDefinitionNewLayoutMargins`
 
 NewTemplateDefinitionNewLayoutMargins instantiates a new TemplateDefinitionNewLayoutMargins object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetTop sets Top field to given value.
 
-### HasTop
-
-`func (o *TemplateDefinitionNewLayoutMargins) HasTop() bool`
-
-HasTop returns a boolean if a field has been set.
 
 ### GetRight
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetRight sets Right field to given value.
 
-### HasRight
-
-`func (o *TemplateDefinitionNewLayoutMargins) HasRight() bool`
-
-HasRight returns a boolean if a field has been set.
 
 ### GetBottom
 
@@ -97,11 +87,6 @@ and a boolean to check if the value has been set.
 
 SetBottom sets Bottom field to given value.
 
-### HasBottom
-
-`func (o *TemplateDefinitionNewLayoutMargins) HasBottom() bool`
-
-HasBottom returns a boolean if a field has been set.
 
 ### GetLeft
 
@@ -122,11 +107,6 @@ and a boolean to check if the value has been set.
 
 SetLeft sets Left field to given value.
 
-### HasLeft
-
-`func (o *TemplateDefinitionNewLayoutMargins) HasLeft() bool`
-
-HasLeft returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

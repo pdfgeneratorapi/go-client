@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | Pointer to [**InlineObject7Response**](InlineObject7Response.md) |  | [optional] 
+**Response** | Pointer to [**Workspace**](Workspace.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetResponse
 
-`func (o *InlineObject7) GetResponse() InlineObject7Response`
+`func (o *InlineObject7) GetResponse() Workspace`
 
 GetResponse returns the Response field if non-nil, zero value otherwise.
 
 ### GetResponseOk
 
-`func (o *InlineObject7) GetResponseOk() (*InlineObject7Response, bool)`
+`func (o *InlineObject7) GetResponseOk() (*Workspace, bool)`
 
 GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponse
 
-`func (o *InlineObject7) SetResponse(v InlineObject7Response)`
+`func (o *InlineObject7) SetResponse(v Workspace)`
 
 SetResponse sets Response field to given value.
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to [**TemplateParamId**](TemplateParamId.md) |  | [optional] 
+**Id** | Pointer to [**CreateFacturXEInvoiceRequestTemplateId**](CreateFacturXEInvoiceRequestTemplateId.md) |  | [optional] 
 **VersionId** | Pointer to **int32** | Template version ID | [optional] 
 **Data** | Pointer to [**TemplateParamData**](TemplateParamData.md) |  | [optional] 
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *TemplateParam) GetId() TemplateParamId`
+`func (o *TemplateParam) GetId() CreateFacturXEInvoiceRequestTemplateId`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *TemplateParam) GetIdOk() (*TemplateParamId, bool)`
+`func (o *TemplateParam) GetIdOk() (*CreateFacturXEInvoiceRequestTemplateId, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *TemplateParam) SetId(v TemplateParamId)`
+`func (o *TemplateParam) SetId(v CreateFacturXEInvoiceRequestTemplateId)`
 
 SetId sets Id field to given value.
 

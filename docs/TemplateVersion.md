@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Checksum** | Pointer to **string** |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 **UserName** | Pointer to **string** |  | [optional] 
+**UserEmail** | Pointer to **string** | Identifier of the workspace that created the version | [optional] 
 **IsProduction** | Pointer to **bool** |  | [optional] 
 **CreatedAt** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
@@ -208,6 +209,31 @@ SetUserName sets UserName field to given value.
 `func (o *TemplateVersion) HasUserName() bool`
 
 HasUserName returns a boolean if a field has been set.
+
+### GetUserEmail
+
+`func (o *TemplateVersion) GetUserEmail() string`
+
+GetUserEmail returns the UserEmail field if non-nil, zero value otherwise.
+
+### GetUserEmailOk
+
+`func (o *TemplateVersion) GetUserEmailOk() (*string, bool)`
+
+GetUserEmailOk returns a tuple with the UserEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserEmail
+
+`func (o *TemplateVersion) SetUserEmail(v string)`
+
+SetUserEmail sets UserEmail field to given value.
+
+### HasUserEmail
+
+`func (o *TemplateVersion) HasUserEmail() bool`
+
+HasUserEmail returns a boolean if a field has been set.
 
 ### GetIsProduction
 

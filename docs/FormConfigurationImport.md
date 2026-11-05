@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TemplateId** | Pointer to **NullableInt32** | Template ID which is connected to the form | [optional] 
-**Name** | Pointer to **string** | Form name | [optional] 
-**Actions** | Pointer to [**[]FormConfigurationNewActionsInner**](FormConfigurationNewActionsInner.md) | Array of action configurations. Each action is a separate object with a single key; leave an action out to disable it. | [optional] 
+**Name** | **string** | Form name | 
+**Actions** | [**[]FormConfigurationNewActionsInner**](FormConfigurationNewActionsInner.md) | Array of action configurations. Each action is a separate object with a single key; leave an action out to disable it. | 
 **Configuration** | Pointer to [**FormConfiguration**](FormConfiguration.md) |  | [optional] 
 
 ## Methods
 
 ### NewFormConfigurationImport
 
-`func NewFormConfigurationImport() *FormConfigurationImport`
+`func NewFormConfigurationImport(name string, actions []FormConfigurationNewActionsInner, ) *FormConfigurationImport`
 
 NewFormConfigurationImport instantiates a new FormConfigurationImport object
 This constructor will assign default values to properties that have it defined,
@@ -82,11 +82,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *FormConfigurationImport) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetActions
 
@@ -107,11 +102,6 @@ and a boolean to check if the value has been set.
 
 SetActions sets Actions field to given value.
 
-### HasActions
-
-`func (o *FormConfigurationImport) HasActions() bool`
-
-HasActions returns a boolean if a field has been set.
 
 ### GetConfiguration
 

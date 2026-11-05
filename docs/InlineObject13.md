@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobId** | Pointer to **string** | UUID of the async job. | [optional] 
-**Status** | Pointer to **string** | Status of the async job. | [optional] 
+**Response** | Pointer to [**map[string]InlineObject13ResponseValue**](InlineObject13ResponseValue.md) | Form fields extracted from the PDF document | [optional] 
 
 ## Methods
 
@@ -26,55 +25,30 @@ NewInlineObject13WithDefaults instantiates a new InlineObject13 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetJobId
+### GetResponse
 
-`func (o *InlineObject13) GetJobId() string`
+`func (o *InlineObject13) GetResponse() map[string]InlineObject13ResponseValue`
 
-GetJobId returns the JobId field if non-nil, zero value otherwise.
+GetResponse returns the Response field if non-nil, zero value otherwise.
 
-### GetJobIdOk
+### GetResponseOk
 
-`func (o *InlineObject13) GetJobIdOk() (*string, bool)`
+`func (o *InlineObject13) GetResponseOk() (*map[string]InlineObject13ResponseValue, bool)`
 
-GetJobIdOk returns a tuple with the JobId field if it's non-nil, zero value otherwise
+GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetJobId
+### SetResponse
 
-`func (o *InlineObject13) SetJobId(v string)`
+`func (o *InlineObject13) SetResponse(v map[string]InlineObject13ResponseValue)`
 
-SetJobId sets JobId field to given value.
+SetResponse sets Response field to given value.
 
-### HasJobId
+### HasResponse
 
-`func (o *InlineObject13) HasJobId() bool`
+`func (o *InlineObject13) HasResponse() bool`
 
-HasJobId returns a boolean if a field has been set.
-
-### GetStatus
-
-`func (o *InlineObject13) GetStatus() string`
-
-GetStatus returns the Status field if non-nil, zero value otherwise.
-
-### GetStatusOk
-
-`func (o *InlineObject13) GetStatusOk() (*string, bool)`
-
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatus
-
-`func (o *InlineObject13) SetStatus(v string)`
-
-SetStatus sets Status field to given value.
-
-### HasStatus
-
-`func (o *InlineObject13) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
+HasResponse returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

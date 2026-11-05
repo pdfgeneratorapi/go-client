@@ -1,9 +1,9 @@
 /*
 PDF Generator API
 
-# Introduction [PDF Generator API](https://pdfgeneratorapi.com) allows you easily generate transactional PDF documents and reduce the development and support costs by enabling your users to create and manage their document templates using a browser-based drag-and-drop document editor.  The PDF Generator API features a web API architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.  ## Base URL The base URL for all the API endpoints is `https://us1.pdfgeneratorapi.com/api/v4`  For example * `https://us1.pdfgeneratorapi.com/api/v4/templates` * `https://us1.pdfgeneratorapi.com/api/v4/workspaces` * `https://us1.pdfgeneratorapi.com/api/v4/templates/123123`  ## Editor PDF Generator API comes with a powerful drag & drop editor that allows to create any kind of document templates, from barcode labels to invoices, quotes and reports. You can find tutorials and videos from our [Support Portal](https://support.pdfgeneratorapi.com). * [Component specification](https://support.pdfgeneratorapi.com/en/category/components-1ffseaj/) * [Expression Language documentation](https://support.pdfgeneratorapi.com/en/category/expression-language-q203pa/) * [Frequently asked questions and answers](https://support.pdfgeneratorapi.com/en/category/qanda-1ov519d/)  ## Definitions  ### Organization Organization is a group of workspaces owned by your account.  ### Workspace Workspace contains templates. Each workspace has access to their own templates and organization default templates.  ### Master Workspace Master Workspace is the main/default workspace of your Organization. The Master Workspace identifier is the email you signed up with.  ### Default Template Default template is a template that is available for all workspaces by default. You can set the template access type under Page Setup. If template has \"Organization\" access then your users can use them from the \"New\" menu in the Editor.  ### Data Field Data Field is a placeholder for the specific data in your JSON data set. In this example JSON you can access the buyer name using Data Field `{paymentDetails::buyerName}`. The separator between depth levels is :: (two colons). When designing the template you don’t have to know every Data Field, our editor automatically extracts all the available fields from your data set and provides an easy way to insert them into the template. ``` {     \"documentNumber\": 1,     \"paymentDetails\": {         \"method\": \"Credit Card\",         \"buyerName\": \"John Smith\"     },     \"items\": [         {             \"id\": 1,             \"name\": \"Item one\"         }     ] } ```  ## Rate limiting Our API endpoints use IP-based rate limiting and allow you to make up to 2 requests per second and 60 requests per minute. If you make more requests, you will receive a response with HTTP code 429.  Response headers contain additional values:  | Header   | Description                    | |--------|--------------------------------| | X-RateLimit-Limit    | Maximum requests per minute                   | | X-RateLimit-Remaining    | The requests remaining in the current minute               | | Retry-After     | How many seconds you need to wait until you are allowed to make requests |  *  *  *  *  *  # Libraries and SDKs ## Postman Collection We have created a [Postman Collection](https://www.postman.com/pdfgeneratorapi/workspace/pdf-generator-api-public-workspace/overview) so you can easily test all the API endpoints without developing and code.   ## Client Libraries All our Client Libraries are auto-generated using [OpenAPI Generator](https://openapi-generator.tech/) which uses the OpenAPI v3 specification to automatically generate a client library in specific programming language.  * [PHP Client](https://github.com/pdfgeneratorapi/php-client) * [Java Client](https://github.com/pdfgeneratorapi/java-client) * [Ruby Client](https://github.com/pdfgeneratorapi/ruby-client) * [Python Client](https://github.com/pdfgeneratorapi/python-client) * [Javascript Client](https://github.com/pdfgeneratorapi/javascript-client)  We have validated the generated libraries, but let us know if you find any anomalies in the client code.  ## Model Context Protocol (MCP) Server Integrate document generation directly into your AI agents and LLM applications using our official Model Context Protocol (MCP) Server.  The MCP server provides a standardized interface that allows AI assistants (like Claude Desktop and other MCP-compatible clients) to securely interact with the PDF Generator API. With it, your AI applications can automatically fetch workspaces, retrieve templates, merge data, and generate PDF documents on the fly.  [Get PDF Generator API MCP Server](https://github.com/pdfgeneratorapi/mcp-server) *  *  *  *  *   # Authentication The PDF Generator API uses __JSON Web Tokens (JWT)__ to authenticate all API requests. These tokens offer a method to establish secure server-to-server authentication by transferring a compact JSON object with a signed payload of your account’s API Key and Secret. When authenticating to the PDF Generator API, a JWT should be generated uniquely by a __server-side application__ and included as a __Bearer Token__ in the header of each request.   <SecurityDefinitions />  ## Accessing your API Key and Secret You can find your __API Key__ and __API Secret__ from the __Account Settings__ page after you login to PDF Generator API [here](https://pdfgeneratorapi.com/login).  ## Creating a JWT JSON Web Tokens are composed of three sections: a header, a payload (containing a claim set), and a signature. The header and payload are JSON objects, which are serialized to UTF-8 bytes, then encoded using base64url encoding.  The JWT's header, payload, and signature are concatenated with periods (.). As a result, a JWT typically takes the following form: ``` {Base64url encoded header}.{Base64url encoded payload}.{Base64url encoded signature} ```  We recommend and support libraries provided on [jwt.io](https://jwt.io/). While other libraries can create JWT, these recommended libraries are the most robust.  ### Header Property `alg` defines which signing algorithm is being used. PDF Generator API users HS256. Property `typ` defines the type of token and it is always JWT. ``` {   \"alg\": \"HS256\",   \"typ\": \"JWT\" } ```  ### Payload The second part of the token is the payload, which contains the claims  or the pieces of information being passed about the user and any metadata required. It is mandatory to specify the following claims: * issuer (`iss`): Your API key * subject (`sub`): Workspace identifier * expiration time (`exp`): Timestamp (unix epoch time) until the token is valid. It is highly recommended to set the exp timestamp for a short period, i.e. a matter of seconds. This way, if a token is intercepted or shared, the token will only be valid for a short period of time.  ``` {   \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",   \"sub\": \"demo.example@actualreports.com\",   \"exp\": 1586112639 } ```  ### Payload for Partners Our partners can send their unique identifier (provided by us) in JWT's partner_id claim. If the `partner_id` value is specified in the JWT, the organization making the request is automatically connected to the partner account. * Partner ID (`partner_id`): Unique identifier provide by PDF Generator API team  ``` {   \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",   \"sub\": \"demo.example@actualreports.com\",   \"partner_id\": \"my-partner-identifier\",   \"exp\": 1586112639 } ```  ### Signature To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is. ``` HMACSHA256(     base64UrlEncode(header) + \".\" +     base64UrlEncode(payload),     API_SECRET) ```  ### Putting all together The output is three Base64-URL strings separated by dots. The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret. ``` eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE4ZjM1OWIyOWZjYjIwZWRiNTYyNTBiOWY1ODRhYTJjYjAxNjJlZDRhIiwic3ViIjoiZGVtby5leGFtcGxlQGFjdHVhbHJlcG9ydHMuY29tIn0.SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q  // Base64 encoded header: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 // Base64 encoded payload: eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE4ZjM1OWIyOWZjYjIwZWRiNTYyNTBiOWY1ODRhYTJjYjAxNjJlZDRhIiwic3ViIjoiZGVtby5leGFtcGxlQGFjdHVhbHJlcG9ydHMuY29tIn0 // Signature: SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q ```  ## Temporary JWTs You can create a temporary token in [Account Settings](https://pdfgeneratorapi.com/account/organization) page after you login to PDF Generator API. The generated token uses your email address as the subject (`sub`) value and is valid for __15 minutes__. You can also use [jwt.io](https://jwt.io/) to generate test tokens for your API calls. These test tokens should never be used in production applications. *  *  *  *  *  # Error codes  | Code   | Description                    | |--------|--------------------------------| | 401    | Unauthorized                   | | 402    | Payment Required               | | 403    | Forbidden                      | | 404    | Not Found                      | | 422    | Unprocessable Entity           | | 429    | Too Many Requests              | | 500    | Internal Server Error          |  ## 401 Unauthorized | Description                                                             | |-------------------------------------------------------------------------| | Authentication failed: request expired                                  | | Authentication failed: workspace missing                                | | Authentication failed: key missing                                      | | Authentication failed: property 'iss' (issuer) missing in JWT           | | Authentication failed: property 'sub' (subject) missing in JWT          | | Authentication failed: property 'exp' (expiration time) missing in JWT  | | Authentication failed: incorrect signature                              |  ## 402 Payment Required | Description                                                             | |-------------------------------------------------------------------------| | Your account is suspended, please upgrade your account                  |  ## 403 Forbidden | Description                                                             | |-------------------------------------------------------------------------| | Your account has exceeded the monthly document generation limit.        | | Access not granted: You cannot delete master workspace via API          | | Access not granted: Template is not accessible by this organization     | | Your session has expired, please close and reopen the editor.           |  ## 404 Entity not found | Description                                                             | |-------------------------------------------------------------------------| | Entity not found                                                        | | Resource not found                                                      | | None of the templates is available for the workspace.                   |  ## 422 Unprocessable Entity | Description                                                             | |-------------------------------------------------------------------------| | Unable to parse JSON, please check formatting                           | | Required parameter missing                                              | | Required parameter missing: template definition not defined             | | Required parameter missing: template not defined                        |  ## 429 Too Many Requests | Description                                                             | |-------------------------------------------------------------------------| | You can make up to 2 requests per second and 60 requests per minute.   |  *  *  *  *  * 
+# Introduction [PDF Generator API](https://pdfgeneratorapi.com) allows you easily generate transactional PDF documents and reduce the development and support costs by enabling your users to create and manage their document templates using a browser-based drag-and-drop document editor.  The PDF Generator API features a web API architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.  ## Base URL The base URL for all the API endpoints is `https://us1.pdfgeneratorapi.com/api/v4`  For example * `https://us1.pdfgeneratorapi.com/api/v4/templates` * `https://us1.pdfgeneratorapi.com/api/v4/workspaces` * `https://us1.pdfgeneratorapi.com/api/v4/templates/123123`  ## Editor PDF Generator API comes with a powerful drag & drop editor that allows to create any kind of document templates, from barcode labels to invoices, quotes and reports. You can find tutorials and videos from our [Support Portal](https://support.pdfgeneratorapi.com). * [Component specification](https://support.pdfgeneratorapi.com/en/category/components-1ffseaj/) * [Expression Language documentation](https://support.pdfgeneratorapi.com/en/category/expression-language-q203pa/) * [Frequently asked questions and answers](https://support.pdfgeneratorapi.com/en/category/qanda-1ov519d/)  ## Definitions  ### Organization Organization is a group of workspaces owned by your account.  ### Workspace Workspace contains templates. Each workspace has access to their own templates and organization default templates.  ### Master Workspace Master Workspace is the main/default workspace of your Organization. The Master Workspace identifier is the email you signed up with.  ### Default Template Default template is a template that is available for all workspaces by default. You can set the template access type under Page Setup. If template has \"Organization\" access then your users can use them from the \"New\" menu in the Editor.  ### Data Field Data Field is a placeholder for the specific data in your JSON data set. In this example JSON you can access the buyer name using Data Field `{paymentDetails::buyerName}`. The separator between depth levels is :: (two colons). When designing the template you don’t have to know every Data Field, our editor automatically extracts all the available fields from your data set and provides an easy way to insert them into the template. ``` {     \"documentNumber\": 1,     \"paymentDetails\": {         \"method\": \"Credit Card\",         \"buyerName\": \"John Smith\"     },     \"items\": [         {             \"id\": 1,             \"name\": \"Item one\"         }     ] } ```  ## Rate limiting Our API endpoints use IP-based rate limiting and allow you to make up to 2 requests per second and 60 requests per minute. If you make more requests, you will receive a response with HTTP code 429.  Response headers contain additional values:  | Header   | Description                    | |--------|--------------------------------| | X-RateLimit-Limit    | Maximum requests per minute                   | | X-RateLimit-Remaining    | The requests remaining in the current minute               | | Retry-After     | How many seconds you need to wait until you are allowed to make requests |  *  *  *  *  *  # Libraries and SDKs ## Postman Collection We have created a [Postman Collection](https://www.postman.com/pdfgeneratorapi/workspace/pdf-generator-api-public-workspace/overview) so you can easily test all the API endpoints without developing and code.   ## Client Libraries All our Client Libraries are auto-generated using [OpenAPI Generator](https://openapi-generator.tech/) which uses the OpenAPI v3 specification to automatically generate a client library in specific programming language.  * [PHP Client](https://github.com/pdfgeneratorapi/php-client) * [Java Client](https://github.com/pdfgeneratorapi/java-client) * [Ruby Client](https://github.com/pdfgeneratorapi/ruby-client) * [Python Client](https://github.com/pdfgeneratorapi/python-client) * [Javascript Client](https://github.com/pdfgeneratorapi/javascript-client)  We have validated the generated libraries, but let us know if you find any anomalies in the client code.  ## Model Context Protocol (MCP) Server Integrate document generation directly into your AI agents and LLM applications using our official Model Context Protocol (MCP) Server.  The MCP server provides a standardized interface that allows AI assistants (like Claude Desktop and other MCP-compatible clients) to securely interact with the PDF Generator API. With it, your AI applications can automatically fetch workspaces, retrieve templates, merge data, and generate PDF documents on the fly.  [Get PDF Generator API MCP Server](https://github.com/pdfgeneratorapi/mcp-server) *  *  *  *  *   # Authentication The PDF Generator API uses __JSON Web Tokens (JWT)__ to authenticate all API requests. These tokens offer a method to establish secure server-to-server authentication by transferring a compact JSON object with a signed payload of your account’s API Key and Secret. When authenticating to the PDF Generator API, a JWT should be generated uniquely by a __server-side application__ and included as a __Bearer Token__ in the header of each request.   <SecurityDefinitions />  ## Accessing your API Key and Secret You can find your __API Key__ and __API Secret__ from the __Account Settings__ page after you login to PDF Generator API [here](https://pdfgeneratorapi.com/login).  ## Creating a JWT JSON Web Tokens are composed of three sections: a header, a payload (containing a claim set), and a signature. The header and payload are JSON objects, which are serialized to UTF-8 bytes, then encoded using base64url encoding.  The JWT's header, payload, and signature are concatenated with periods (.). As a result, a JWT typically takes the following form: ``` {Base64url encoded header}.{Base64url encoded payload}.{Base64url encoded signature} ```  We recommend and support libraries provided on [jwt.io](https://jwt.io/). While other libraries can create JWT, these recommended libraries are the most robust.  ### Header Property `alg` defines which signing algorithm is being used. PDF Generator API users HS256. Property `typ` defines the type of token and it is always JWT. ``` {   \"alg\": \"HS256\",   \"typ\": \"JWT\" } ```  ### Payload The second part of the token is the payload, which contains the claims  or the pieces of information being passed about the user and any metadata required. It is mandatory to specify the following claims: * issuer (`iss`): Your API key * subject (`sub`): Workspace identifier * expiration time (`exp`): Timestamp (unix epoch time) until the token is valid. It is highly recommended to set the exp timestamp for a short period, i.e. a matter of seconds. This way, if a token is intercepted or shared, the token will only be valid for a short period of time.  ``` {   \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",   \"sub\": \"demo.example@actualreports.com\",   \"exp\": 1586112639 } ```  ### Payload for Partners Our partners can send their unique identifier (provided by us) in JWT's partner_id claim. If the `partner_id` value is specified in the JWT, the organization making the request is automatically connected to the partner account. * Partner ID (`partner_id`): Unique identifier provide by PDF Generator API team  ``` {   \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",   \"sub\": \"demo.example@actualreports.com\",   \"partner_id\": \"my-partner-identifier\",   \"exp\": 1586112639 } ```  ### Signature To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is. ``` HMACSHA256(     base64UrlEncode(header) + \".\" +     base64UrlEncode(payload),     API_SECRET) ```  ### Putting all together The output is three Base64-URL strings separated by dots. The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret. ``` eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE4ZjM1OWIyOWZjYjIwZWRiNTYyNTBiOWY1ODRhYTJjYjAxNjJlZDRhIiwic3ViIjoiZGVtby5leGFtcGxlQGFjdHVhbHJlcG9ydHMuY29tIn0.SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q  // Base64 encoded header: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 // Base64 encoded payload: eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE4ZjM1OWIyOWZjYjIwZWRiNTYyNTBiOWY1ODRhYTJjYjAxNjJlZDRhIiwic3ViIjoiZGVtby5leGFtcGxlQGFjdHVhbHJlcG9ydHMuY29tIn0 // Signature: SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q ```  ## Temporary JWTs You can create a temporary token in [Account Settings](https://pdfgeneratorapi.com/account/organization) page after you login to PDF Generator API. The generated token uses your email address as the subject (`sub`) value and is valid for __15 minutes__. You can also use [jwt.io](https://jwt.io/) to generate test tokens for your API calls. These test tokens should never be used in production applications. *  *  *  *  *  # Error codes  Every error response is a JSON object with a `message` string. Request validation failures (422) also include an `errors` object keyed by the field that failed.  ```json {   \"message\": \"The identifier field is required.\",   \"errors\": {     \"identifier\": [\"The identifier field is required.\"]   } } ```  | Code   | Description                    | |--------|--------------------------------| | 400    | Bad Request                    | | 401    | Unauthorized                   | | 402    | Payment Required               | | 403    | Forbidden                      | | 404    | Not Found                      | | 405    | Method Not Allowed             | | 409    | Conflict                       | | 410    | Gone                           | | 422    | Unprocessable Entity           | | 429    | Too Many Requests              | | 500    | Internal Server Error          | | 503    | Service Unavailable            |  ## 401 Unauthorized | Description                                                                       | |-----------------------------------------------------------------------------------| | Authentication failed: JWT Token missing.                                         | | Authentication failed: Malformed JWT Token.                                       | | Authentication failed: Expired JWT Token.                                         | | Authentication failed: Invalid workspace.                                         | | Authentication failed: Invalid organization.                                      | | Authentication failed: This application no longer has access to the workspace.   | | Authentication failed: The sub field is required. (also `iss` and `exp`)          |  ## 402 Payment Required | Description                                                                       | |-----------------------------------------------------------------------------------| | Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com. |  ## 403 Forbidden | Description                                                                       | |-----------------------------------------------------------------------------------| | You don't have permission to access this content. Please get in touch with your organization administrator to update your access permissions. | | This application was not granted permission for this request.                    | | Deleting own user is not allowed.                                                 | | Deleting organization owner is not allowed.                                       |  ## 404 Not Found | Description                                                                       | |-----------------------------------------------------------------------------------| | Entity not found.                                                                 | | Route not found.                                                                  | | Workspace doesn’t have access to read the template.                               |  ## 422 Unprocessable Entity | Description                                                                       | |-----------------------------------------------------------------------------------| | Unable to parse JSON, please check formatting.                                    | | Template id should be a numeric value.                                            | | The per page must be at least 1. (with `errors.per_page`)                         |  ## 429 Too Many Requests | Description                                                                       | |-----------------------------------------------------------------------------------| | Per-second rate limit exceeded. Please slow down your requests.                   | | Per-minute rate limit exceeded. Please try again in a minute.                     | | Global per-second rate limit exceeded. Please slow down your requests.            | | Global per-minute rate limit exceeded. Please try again in a minute.              |  *  *  *  *  * 
 
-API version: 4.0.31
+API version: 4.0.34
 Contact: support@pdfgeneratorapi.com
 */
 
@@ -18,10 +18,8 @@ import (
 // checks if the TemplateDefinition type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TemplateDefinition{}
 
-// TemplateDefinition struct for TemplateDefinition
+// TemplateDefinition A template as stored. Its configuration fields are those a new template is sent with.
 type TemplateDefinition struct {
-	// Unique identifier
-	Id *int32 `json:"id,omitempty"`
 	// Template name
 	Name *string `json:"name,omitempty"`
 	// A list of tags assigned to a template
@@ -30,9 +28,19 @@ type TemplateDefinition struct {
 	IsDraft *bool `json:"isDraft,omitempty"`
 	Layout *TemplateDefinitionNewLayout `json:"layout,omitempty"`
 	// Defines page or label size, margins and components on page or label
-	Pages []TemplateDefinitionPagesInner `json:"pages,omitempty"`
-	DataSettings *TemplateDefinitionDataSettings `json:"dataSettings,omitempty"`
-	Editor *TemplateDefinitionEditor `json:"editor,omitempty"`
+	Pages []TemplateDefinitionNewPagesInner `json:"pages,omitempty"`
+	DataSettings *TemplateDefinitionNewDataSettings `json:"dataSettings,omitempty"`
+	Editor *TemplateDefinitionNewEditor `json:"editor,omitempty"`
+	// If font-subsetting is applied to document when generated
+	FontSubsetting *bool `json:"fontSubsetting,omitempty"`
+	// Defines if barcodes are rendered as raster images instead of vector graphics.
+	BarcodeAsImage *bool `json:"barcodeAsImage,omitempty"`
+	// Unique identifier. `null` for a template library preview, which is not a template of the workspace.
+	Id NullableInt32 `json:"id,omitempty"`
+	// Measures HTML text the way it is drawn. New templates have it on; one saved before it existed keeps it off, and the layout it was designed with.
+	ImprovedHtmlSpacing *bool `json:"improvedHtmlSpacing,omitempty"`
+	// A base64 PDF the pages are drawn on. Set when the template is imported from a PDF.
+	BackgroundPdf NullableString `json:"backgroundPdf,omitempty"`
 }
 
 // NewTemplateDefinition instantiates a new TemplateDefinition object
@@ -41,6 +49,10 @@ type TemplateDefinition struct {
 // will change when the set of required properties is changed
 func NewTemplateDefinition() *TemplateDefinition {
 	this := TemplateDefinition{}
+	var fontSubsetting bool = false
+	this.FontSubsetting = &fontSubsetting
+	var barcodeAsImage bool = false
+	this.BarcodeAsImage = &barcodeAsImage
 	return &this
 }
 
@@ -49,39 +61,11 @@ func NewTemplateDefinition() *TemplateDefinition {
 // but it doesn't guarantee that properties required by API are set
 func NewTemplateDefinitionWithDefaults() *TemplateDefinition {
 	this := TemplateDefinition{}
+	var fontSubsetting bool = false
+	this.FontSubsetting = &fontSubsetting
+	var barcodeAsImage bool = false
+	this.BarcodeAsImage = &barcodeAsImage
 	return &this
-}
-
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *TemplateDefinition) GetId() int32 {
-	if o == nil || IsNil(o.Id) {
-		var ret int32
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *TemplateDefinition) GetIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.Id) {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *TemplateDefinition) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *TemplateDefinition) SetId(v int32) {
-	o.Id = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -213,9 +197,9 @@ func (o *TemplateDefinition) SetLayout(v TemplateDefinitionNewLayout) {
 }
 
 // GetPages returns the Pages field value if set, zero value otherwise.
-func (o *TemplateDefinition) GetPages() []TemplateDefinitionPagesInner {
+func (o *TemplateDefinition) GetPages() []TemplateDefinitionNewPagesInner {
 	if o == nil || IsNil(o.Pages) {
-		var ret []TemplateDefinitionPagesInner
+		var ret []TemplateDefinitionNewPagesInner
 		return ret
 	}
 	return o.Pages
@@ -223,7 +207,7 @@ func (o *TemplateDefinition) GetPages() []TemplateDefinitionPagesInner {
 
 // GetPagesOk returns a tuple with the Pages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TemplateDefinition) GetPagesOk() ([]TemplateDefinitionPagesInner, bool) {
+func (o *TemplateDefinition) GetPagesOk() ([]TemplateDefinitionNewPagesInner, bool) {
 	if o == nil || IsNil(o.Pages) {
 		return nil, false
 	}
@@ -239,15 +223,15 @@ func (o *TemplateDefinition) HasPages() bool {
 	return false
 }
 
-// SetPages gets a reference to the given []TemplateDefinitionPagesInner and assigns it to the Pages field.
-func (o *TemplateDefinition) SetPages(v []TemplateDefinitionPagesInner) {
+// SetPages gets a reference to the given []TemplateDefinitionNewPagesInner and assigns it to the Pages field.
+func (o *TemplateDefinition) SetPages(v []TemplateDefinitionNewPagesInner) {
 	o.Pages = v
 }
 
 // GetDataSettings returns the DataSettings field value if set, zero value otherwise.
-func (o *TemplateDefinition) GetDataSettings() TemplateDefinitionDataSettings {
+func (o *TemplateDefinition) GetDataSettings() TemplateDefinitionNewDataSettings {
 	if o == nil || IsNil(o.DataSettings) {
-		var ret TemplateDefinitionDataSettings
+		var ret TemplateDefinitionNewDataSettings
 		return ret
 	}
 	return *o.DataSettings
@@ -255,7 +239,7 @@ func (o *TemplateDefinition) GetDataSettings() TemplateDefinitionDataSettings {
 
 // GetDataSettingsOk returns a tuple with the DataSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TemplateDefinition) GetDataSettingsOk() (*TemplateDefinitionDataSettings, bool) {
+func (o *TemplateDefinition) GetDataSettingsOk() (*TemplateDefinitionNewDataSettings, bool) {
 	if o == nil || IsNil(o.DataSettings) {
 		return nil, false
 	}
@@ -271,15 +255,15 @@ func (o *TemplateDefinition) HasDataSettings() bool {
 	return false
 }
 
-// SetDataSettings gets a reference to the given TemplateDefinitionDataSettings and assigns it to the DataSettings field.
-func (o *TemplateDefinition) SetDataSettings(v TemplateDefinitionDataSettings) {
+// SetDataSettings gets a reference to the given TemplateDefinitionNewDataSettings and assigns it to the DataSettings field.
+func (o *TemplateDefinition) SetDataSettings(v TemplateDefinitionNewDataSettings) {
 	o.DataSettings = &v
 }
 
 // GetEditor returns the Editor field value if set, zero value otherwise.
-func (o *TemplateDefinition) GetEditor() TemplateDefinitionEditor {
+func (o *TemplateDefinition) GetEditor() TemplateDefinitionNewEditor {
 	if o == nil || IsNil(o.Editor) {
-		var ret TemplateDefinitionEditor
+		var ret TemplateDefinitionNewEditor
 		return ret
 	}
 	return *o.Editor
@@ -287,7 +271,7 @@ func (o *TemplateDefinition) GetEditor() TemplateDefinitionEditor {
 
 // GetEditorOk returns a tuple with the Editor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TemplateDefinition) GetEditorOk() (*TemplateDefinitionEditor, bool) {
+func (o *TemplateDefinition) GetEditorOk() (*TemplateDefinitionNewEditor, bool) {
 	if o == nil || IsNil(o.Editor) {
 		return nil, false
 	}
@@ -303,9 +287,189 @@ func (o *TemplateDefinition) HasEditor() bool {
 	return false
 }
 
-// SetEditor gets a reference to the given TemplateDefinitionEditor and assigns it to the Editor field.
-func (o *TemplateDefinition) SetEditor(v TemplateDefinitionEditor) {
+// SetEditor gets a reference to the given TemplateDefinitionNewEditor and assigns it to the Editor field.
+func (o *TemplateDefinition) SetEditor(v TemplateDefinitionNewEditor) {
 	o.Editor = &v
+}
+
+// GetFontSubsetting returns the FontSubsetting field value if set, zero value otherwise.
+func (o *TemplateDefinition) GetFontSubsetting() bool {
+	if o == nil || IsNil(o.FontSubsetting) {
+		var ret bool
+		return ret
+	}
+	return *o.FontSubsetting
+}
+
+// GetFontSubsettingOk returns a tuple with the FontSubsetting field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplateDefinition) GetFontSubsettingOk() (*bool, bool) {
+	if o == nil || IsNil(o.FontSubsetting) {
+		return nil, false
+	}
+	return o.FontSubsetting, true
+}
+
+// HasFontSubsetting returns a boolean if a field has been set.
+func (o *TemplateDefinition) HasFontSubsetting() bool {
+	if o != nil && !IsNil(o.FontSubsetting) {
+		return true
+	}
+
+	return false
+}
+
+// SetFontSubsetting gets a reference to the given bool and assigns it to the FontSubsetting field.
+func (o *TemplateDefinition) SetFontSubsetting(v bool) {
+	o.FontSubsetting = &v
+}
+
+// GetBarcodeAsImage returns the BarcodeAsImage field value if set, zero value otherwise.
+func (o *TemplateDefinition) GetBarcodeAsImage() bool {
+	if o == nil || IsNil(o.BarcodeAsImage) {
+		var ret bool
+		return ret
+	}
+	return *o.BarcodeAsImage
+}
+
+// GetBarcodeAsImageOk returns a tuple with the BarcodeAsImage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplateDefinition) GetBarcodeAsImageOk() (*bool, bool) {
+	if o == nil || IsNil(o.BarcodeAsImage) {
+		return nil, false
+	}
+	return o.BarcodeAsImage, true
+}
+
+// HasBarcodeAsImage returns a boolean if a field has been set.
+func (o *TemplateDefinition) HasBarcodeAsImage() bool {
+	if o != nil && !IsNil(o.BarcodeAsImage) {
+		return true
+	}
+
+	return false
+}
+
+// SetBarcodeAsImage gets a reference to the given bool and assigns it to the BarcodeAsImage field.
+func (o *TemplateDefinition) SetBarcodeAsImage(v bool) {
+	o.BarcodeAsImage = &v
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TemplateDefinition) GetId() int32 {
+	if o == nil || IsNil(o.Id.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Id.Get()
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TemplateDefinition) GetIdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Id.Get(), o.Id.IsSet()
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *TemplateDefinition) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableInt32 and assigns it to the Id field.
+func (o *TemplateDefinition) SetId(v int32) {
+	o.Id.Set(&v)
+}
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *TemplateDefinition) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *TemplateDefinition) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetImprovedHtmlSpacing returns the ImprovedHtmlSpacing field value if set, zero value otherwise.
+func (o *TemplateDefinition) GetImprovedHtmlSpacing() bool {
+	if o == nil || IsNil(o.ImprovedHtmlSpacing) {
+		var ret bool
+		return ret
+	}
+	return *o.ImprovedHtmlSpacing
+}
+
+// GetImprovedHtmlSpacingOk returns a tuple with the ImprovedHtmlSpacing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplateDefinition) GetImprovedHtmlSpacingOk() (*bool, bool) {
+	if o == nil || IsNil(o.ImprovedHtmlSpacing) {
+		return nil, false
+	}
+	return o.ImprovedHtmlSpacing, true
+}
+
+// HasImprovedHtmlSpacing returns a boolean if a field has been set.
+func (o *TemplateDefinition) HasImprovedHtmlSpacing() bool {
+	if o != nil && !IsNil(o.ImprovedHtmlSpacing) {
+		return true
+	}
+
+	return false
+}
+
+// SetImprovedHtmlSpacing gets a reference to the given bool and assigns it to the ImprovedHtmlSpacing field.
+func (o *TemplateDefinition) SetImprovedHtmlSpacing(v bool) {
+	o.ImprovedHtmlSpacing = &v
+}
+
+// GetBackgroundPdf returns the BackgroundPdf field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TemplateDefinition) GetBackgroundPdf() string {
+	if o == nil || IsNil(o.BackgroundPdf.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BackgroundPdf.Get()
+}
+
+// GetBackgroundPdfOk returns a tuple with the BackgroundPdf field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TemplateDefinition) GetBackgroundPdfOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BackgroundPdf.Get(), o.BackgroundPdf.IsSet()
+}
+
+// HasBackgroundPdf returns a boolean if a field has been set.
+func (o *TemplateDefinition) HasBackgroundPdf() bool {
+	if o != nil && o.BackgroundPdf.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBackgroundPdf gets a reference to the given NullableString and assigns it to the BackgroundPdf field.
+func (o *TemplateDefinition) SetBackgroundPdf(v string) {
+	o.BackgroundPdf.Set(&v)
+}
+// SetBackgroundPdfNil sets the value for BackgroundPdf to be an explicit nil
+func (o *TemplateDefinition) SetBackgroundPdfNil() {
+	o.BackgroundPdf.Set(nil)
+}
+
+// UnsetBackgroundPdf ensures that no value is present for BackgroundPdf, not even an explicit nil
+func (o *TemplateDefinition) UnsetBackgroundPdf() {
+	o.BackgroundPdf.Unset()
 }
 
 func (o TemplateDefinition) MarshalJSON() ([]byte, error) {
@@ -318,9 +482,6 @@ func (o TemplateDefinition) MarshalJSON() ([]byte, error) {
 
 func (o TemplateDefinition) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -341,6 +502,21 @@ func (o TemplateDefinition) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Editor) {
 		toSerialize["editor"] = o.Editor
+	}
+	if !IsNil(o.FontSubsetting) {
+		toSerialize["fontSubsetting"] = o.FontSubsetting
+	}
+	if !IsNil(o.BarcodeAsImage) {
+		toSerialize["barcodeAsImage"] = o.BarcodeAsImage
+	}
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
+	if !IsNil(o.ImprovedHtmlSpacing) {
+		toSerialize["improvedHtmlSpacing"] = o.ImprovedHtmlSpacing
+	}
+	if o.BackgroundPdf.IsSet() {
+		toSerialize["backgroundPdf"] = o.BackgroundPdf.Get()
 	}
 	return toSerialize, nil
 }

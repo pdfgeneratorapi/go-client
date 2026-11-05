@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Content** | **string** | The content which is used to generate QR code | 
-**Color** | Pointer to **string** | QR code in hexadecimal format | [optional] [default to "#000000"]
-**LogoBase64** | Pointer to **string** | A logo as a base64 image string to add on the QR code | [optional] 
-**LogoUrl** | Pointer to **string** | A logo URL to an image to add on the QR code | [optional] 
+**Color** | Pointer to **string** | QR code color as a hex color code | [optional] [default to "#000000"]
+**LogoBase64** | Pointer to **string** | A logo as a base64 image string to add on the QR code. Cannot be combined with &#x60;logo_url&#x60;. | [optional] 
+**LogoUrl** | Pointer to **string** | Public HTTPS URL of a logo image to add on the QR code. Cannot be combined with &#x60;logo_base64&#x60;. | [optional] 
 **Output** | Pointer to **string** | Response format | [optional] [default to "base64"]
 
 ## Methods

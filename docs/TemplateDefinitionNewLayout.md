@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Format** | Pointer to **string** | Defines template page size | [optional] [default to "A4"]
-**Width** | Pointer to **float32** | Page width in units | [optional] 
-**Height** | Pointer to **float32** | Page height in units | [optional] 
+**Format** | **string** | Defines template page size. For any other size, use custom with width and height. | 
+**Width** | Pointer to **float32** | Page width in units. Left out, it is the format&#39;s width; send it with a custom format. | [optional] 
+**Height** | Pointer to **float32** | Page height in units. Left out, it is the format&#39;s height; send it with a custom format. | [optional] 
 **Unit** | Pointer to **string** | Measure unit | [optional] [default to "cm"]
-**Orientation** | Pointer to **string** | Page orientation | [optional] 
+**Orientation** | **string** | Page orientation | 
 **Rotation** | Pointer to **int32** | Page rotation in degrees | [optional] 
-**Margins** | Pointer to [**TemplateDefinitionNewLayoutMargins**](TemplateDefinitionNewLayoutMargins.md) |  | [optional] 
+**Margins** | [**TemplateDefinitionNewLayoutMargins**](TemplateDefinitionNewLayoutMargins.md) |  | 
 **RepeatLayout** | Pointer to [**NullableTemplateDefinitionNewLayoutRepeatLayout**](TemplateDefinitionNewLayoutRepeatLayout.md) |  | [optional] 
 **EmptyLabels** | Pointer to **int32** | Specifies how many blank lables to add to sheet label. | [optional] [default to 0]
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewTemplateDefinitionNewLayout
 
-`func NewTemplateDefinitionNewLayout() *TemplateDefinitionNewLayout`
+`func NewTemplateDefinitionNewLayout(format string, orientation string, margins TemplateDefinitionNewLayoutMargins, ) *TemplateDefinitionNewLayout`
 
 NewTemplateDefinitionNewLayout instantiates a new TemplateDefinitionNewLayout object
 This constructor will assign default values to properties that have it defined,
@@ -52,11 +52,6 @@ and a boolean to check if the value has been set.
 
 SetFormat sets Format field to given value.
 
-### HasFormat
-
-`func (o *TemplateDefinitionNewLayout) HasFormat() bool`
-
-HasFormat returns a boolean if a field has been set.
 
 ### GetWidth
 
@@ -152,11 +147,6 @@ and a boolean to check if the value has been set.
 
 SetOrientation sets Orientation field to given value.
 
-### HasOrientation
-
-`func (o *TemplateDefinitionNewLayout) HasOrientation() bool`
-
-HasOrientation returns a boolean if a field has been set.
 
 ### GetRotation
 
@@ -202,11 +192,6 @@ and a boolean to check if the value has been set.
 
 SetMargins sets Margins field to given value.
 
-### HasMargins
-
-`func (o *TemplateDefinitionNewLayout) HasMargins() bool`
-
-HasMargins returns a boolean if a field has been set.
 
 ### GetRepeatLayout
 

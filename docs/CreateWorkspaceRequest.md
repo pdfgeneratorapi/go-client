@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identifier** | Pointer to **string** | A unique identifier of the workspace. Make sure that you can generate the same identifier for your user. | [optional] 
+**Identifier** | **string** | A unique identifier of the workspace. Make sure that you can generate the same identifier for your user. | 
 
 ## Methods
 
 ### NewCreateWorkspaceRequest
 
-`func NewCreateWorkspaceRequest() *CreateWorkspaceRequest`
+`func NewCreateWorkspaceRequest(identifier string, ) *CreateWorkspaceRequest`
 
 NewCreateWorkspaceRequest instantiates a new CreateWorkspaceRequest object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetIdentifier sets Identifier field to given value.
 
-### HasIdentifier
-
-`func (o *CreateWorkspaceRequest) HasIdentifier() bool`
-
-HasIdentifier returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

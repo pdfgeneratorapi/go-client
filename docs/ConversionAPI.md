@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ConvertHTML2PDF
 
-> InlineObject9 ConvertHTML2PDF(ctx).ConvertHTML2PDFRequest(convertHTML2PDFRequest).Execute()
+> InlineObject8 ConvertHTML2PDF(ctx).ConvertHTML2PDFRequest(convertHTML2PDFRequest).Execute()
 
 HTML to PDF
 
@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-	convertHTML2PDFRequest := *openapiclient.NewConvertHTML2PDFRequest() // ConvertHTML2PDFRequest | 
+	convertHTML2PDFRequest := *openapiclient.NewConvertHTML2PDFRequest("<html><title>Test</title><body><h1>Hello world</h1></body></html>") // ConvertHTML2PDFRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -40,7 +40,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConversionAPI.ConvertHTML2PDF``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ConvertHTML2PDF`: InlineObject9
+	// response from `ConvertHTML2PDF`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `ConversionAPI.ConvertHTML2PDF`: %v\n", resp)
 }
 ```
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## ConvertPDF2Image
 
-> InlineObject10 ConvertPDF2Image(ctx).ConvertPDF2ImageRequest(convertPDF2ImageRequest).Execute()
+> *os.File ConvertPDF2Image(ctx).ConvertPDF2ImageRequest(convertPDF2ImageRequest).Execute()
 
 PDF to Image
 
@@ -106,7 +106,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConversionAPI.ConvertPDF2Image``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ConvertPDF2Image`: InlineObject10
+	// response from `ConvertPDF2Image`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `ConversionAPI.ConvertPDF2Image`: %v\n", resp)
 }
 ```
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject10**](InlineObject10.md)
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/zip, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ## ConvertURL2PDF
 
-> InlineObject9 ConvertURL2PDF(ctx).ConvertURL2PDFRequest(convertURL2PDFRequest).Execute()
+> InlineObject8 ConvertURL2PDF(ctx).ConvertURL2PDFRequest(convertURL2PDFRequest).Execute()
 
 URL to PDF
 
@@ -163,7 +163,7 @@ import (
 )
 
 func main() {
-	convertURL2PDFRequest := *openapiclient.NewConvertURL2PDFRequest() // ConvertURL2PDFRequest | 
+	convertURL2PDFRequest := *openapiclient.NewConvertURL2PDFRequest("https://example.org") // ConvertURL2PDFRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -172,7 +172,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConversionAPI.ConvertURL2PDF``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ConvertURL2PDF`: InlineObject9
+	// response from `ConvertURL2PDF`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `ConversionAPI.ConvertURL2PDF`: %v\n", resp)
 }
 ```
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 

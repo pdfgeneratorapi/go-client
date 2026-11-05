@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | Pointer to **string** | Public callback URL that is used to make a POST request when the document is generated. | [optional] 
+**Url** | **string** | Public HTTPS callback URL that is used to make a POST request when the document is generated. | 
 **Headers** | Pointer to **map[string]interface{}** | A key-value pairs of header values sent with the POST request. | [optional] 
 
 ## Methods
 
 ### NewCallbackParam
 
-`func NewCallbackParam() *CallbackParam`
+`func NewCallbackParam(url string, ) *CallbackParam`
 
 NewCallbackParam instantiates a new CallbackParam object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
-
-`func (o *CallbackParam) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
 
 ### GetHeaders
 

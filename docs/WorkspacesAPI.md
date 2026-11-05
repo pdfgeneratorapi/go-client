@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## CreateWorkspace
 
-> InlineObject8 CreateWorkspace(ctx).CreateWorkspaceRequest(createWorkspaceRequest).Execute()
+> InlineObject7 CreateWorkspace(ctx).CreateWorkspaceRequest(createWorkspaceRequest).Execute()
 
 Create workspace
 
@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	createWorkspaceRequest := *openapiclient.NewCreateWorkspaceRequest() // CreateWorkspaceRequest |  (optional)
+	createWorkspaceRequest := *openapiclient.NewCreateWorkspaceRequest("demo.example@actualreports.com") // CreateWorkspaceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.CreateWorkspace``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateWorkspace`: InlineObject8
+	// response from `CreateWorkspace`: InlineObject7
 	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.CreateWorkspace`: %v\n", resp)
 }
 ```
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject8**](InlineObject8.md)
+[**InlineObject7**](InlineObject7.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ## GetWorkspace
 
-> InlineObject8 GetWorkspace(ctx, workspaceIdentifier).Execute()
+> InlineObject7 GetWorkspace(ctx, workspaceIdentifier).Execute()
 
 Get workspace
 
@@ -175,7 +175,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.GetWorkspace``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetWorkspace`: InlineObject8
+	// response from `GetWorkspace`: InlineObject7
 	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.GetWorkspace`: %v\n", resp)
 }
 ```
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject8**](InlineObject8.md)
+[**InlineObject7**](InlineObject7.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ## GetWorkspaces
 
-> InlineObject5 GetWorkspaces(ctx).Page(page).PerPage(perPage).Execute()
+> InlineObject5 GetWorkspaces(ctx).Page(page).PerPage(perPage).OrderBy(orderBy).OrderDirection(orderDirection).Activated(activated).Search(search).Execute()
 
 Get workspaces
 
@@ -238,10 +238,14 @@ import (
 func main() {
 	page := int32(1) // int32 | Pagination: page to return (optional) (default to 1)
 	perPage := int32(20) // int32 | Pagination: How many records to return per page (optional) (default to 15)
+	orderBy := "identifier" // string | Field to sort the workspaces by (optional) (default to "id")
+	orderDirection := "asc" // string | Sort direction (optional) (default to "desc")
+	activated := int32(1) // int32 | Returns only active (`1`) or deactivated (`0`) workspaces (optional)
+	search := "demo.example" // string | Returns workspaces whose ID, name or identifier contains the search value (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.GetWorkspaces(context.Background()).Page(page).PerPage(perPage).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.GetWorkspaces(context.Background()).Page(page).PerPage(perPage).OrderBy(orderBy).OrderDirection(orderDirection).Activated(activated).Search(search).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.GetWorkspaces``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -264,6 +268,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int32** | Pagination: page to return | [default to 1]
  **perPage** | **int32** | Pagination: How many records to return per page | [default to 15]
+ **orderBy** | **string** | Field to sort the workspaces by | [default to &quot;id&quot;]
+ **orderDirection** | **string** | Sort direction | [default to &quot;desc&quot;]
+ **activated** | **int32** | Returns only active (&#x60;1&#x60;) or deactivated (&#x60;0&#x60;) workspaces | 
+ **search** | **string** | Returns workspaces whose ID, name or identifier contains the search value | 
 
 ### Return type
 

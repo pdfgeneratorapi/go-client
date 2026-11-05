@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## AddWatermark
 
-> InlineObject9 AddWatermark(ctx).AddWatermarkRequest(addWatermarkRequest).Execute()
+> InlineObject8 AddWatermark(ctx).AddWatermarkRequest(addWatermarkRequest).Execute()
 
 Add watermark
 
@@ -44,7 +44,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesAPI.AddWatermark``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AddWatermark`: InlineObject9
+	// response from `AddWatermark`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `ServicesAPI.AddWatermark`: %v\n", resp)
 }
 ```
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## DecryptDocument
 
-> InlineObject9 DecryptDocument(ctx).EncryptDocumentRequest(encryptDocumentRequest).Execute()
+> InlineObject8 DecryptDocument(ctx).EncryptDocumentRequest(encryptDocumentRequest).Execute()
 
 Decrypt document
 
@@ -110,7 +110,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesAPI.DecryptDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DecryptDocument`: InlineObject9
+	// response from `DecryptDocument`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `ServicesAPI.DecryptDocument`: %v\n", resp)
 }
 ```
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## EncryptDocument
 
-> InlineObject9 EncryptDocument(ctx).EncryptDocumentRequest(encryptDocumentRequest).Execute()
+> InlineObject8 EncryptDocument(ctx).EncryptDocumentRequest(encryptDocumentRequest).Execute()
 
 Encrypt document
 
@@ -176,7 +176,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesAPI.EncryptDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EncryptDocument`: InlineObject9
+	// response from `EncryptDocument`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `ServicesAPI.EncryptDocument`: %v\n", resp)
 }
 ```
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ## ExtractFormFields
 
-> InlineObject14 ExtractFormFields(ctx).ExtractFormFieldsRequest(extractFormFieldsRequest).Execute()
+> InlineObject13 ExtractFormFields(ctx).ExtractFormFieldsRequest(extractFormFieldsRequest).Execute()
 
 Extract form fields
 
@@ -242,7 +242,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesAPI.ExtractFormFields``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ExtractFormFields`: InlineObject14
+	// response from `ExtractFormFields`: InlineObject13
 	fmt.Fprintf(os.Stdout, "Response from `ServicesAPI.ExtractFormFields`: %v\n", resp)
 }
 ```
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject14**](InlineObject14.md)
+[**InlineObject13**](InlineObject13.md)
 
 ### Authorization
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ## FillFormFields
 
-> InlineObject9 FillFormFields(ctx).FillFormFieldsRequest(fillFormFieldsRequest).Execute()
+> InlineObject8 FillFormFields(ctx).FillFormFieldsRequest(fillFormFieldsRequest).Execute()
 
 Fill form fields
 
@@ -308,7 +308,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesAPI.FillFormFields``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `FillFormFields`: InlineObject9
+	// response from `FillFormFields`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `ServicesAPI.FillFormFields`: %v\n", resp)
 }
 ```
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ## MakeAccessible
 
-> InlineObject9 MakeAccessible(ctx).MakeAccessibleRequest(makeAccessibleRequest).Execute()
+> InlineObject8 MakeAccessible(ctx).MakeAccessibleRequest(makeAccessibleRequest).Execute()
 
 Make accessible
 
@@ -374,7 +374,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesAPI.MakeAccessible``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `MakeAccessible`: InlineObject9
+	// response from `MakeAccessible`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `ServicesAPI.MakeAccessible`: %v\n", resp)
 }
 ```
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 ## OptimizeDocument
 
-> InlineObject12 OptimizeDocument(ctx).OptimizeDocumentRequest(optimizeDocumentRequest).Execute()
+> InlineObject11 OptimizeDocument(ctx).OptimizeDocumentRequest(optimizeDocumentRequest).Execute()
 
 Optimize document
 
@@ -440,7 +440,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesAPI.OptimizeDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `OptimizeDocument`: InlineObject12
+	// response from `OptimizeDocument`: InlineObject11
 	fmt.Fprintf(os.Stdout, "Response from `ServicesAPI.OptimizeDocument`: %v\n", resp)
 }
 ```
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject12**](InlineObject12.md)
+[**InlineObject11**](InlineObject11.md)
 
 ### Authorization
 

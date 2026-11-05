@@ -4,11 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Document name. This value is automatically generated if name attribute is not defined in request. | [optional] 
-**DisplayName** | Pointer to **string** | Document name without the file extension. | [optional] 
-**Encoding** | Pointer to **string** | Document encoding | [optional] 
-**ContentType** | Pointer to **string** | Document content type. | [optional] 
-**PublicId** | Pointer to **string** | Document public id, if output&#x3D;url was used for document storage | [optional] 
+**Name** | Pointer to **string** | File name with extension. Auto-generated if not provided in request. | [optional] 
+**DisplayName** | Pointer to **string** | File name without extension. | [optional] 
+**Encoding** | Pointer to **string** | Encoding of the response data. | [optional] 
+**ContentType** | Pointer to **string** | Image content type. | [optional] 
 
 ## Methods
 
@@ -128,31 +127,6 @@ SetContentType sets ContentType field to given value.
 `func (o *InlineObject9Meta) HasContentType() bool`
 
 HasContentType returns a boolean if a field has been set.
-
-### GetPublicId
-
-`func (o *InlineObject9Meta) GetPublicId() string`
-
-GetPublicId returns the PublicId field if non-nil, zero value otherwise.
-
-### GetPublicIdOk
-
-`func (o *InlineObject9Meta) GetPublicIdOk() (*string, bool)`
-
-GetPublicIdOk returns a tuple with the PublicId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPublicId
-
-`func (o *InlineObject9Meta) SetPublicId(v string)`
-
-SetPublicId sets PublicId field to given value.
-
-### HasPublicId
-
-`func (o *InlineObject9Meta) HasPublicId() bool`
-
-HasPublicId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

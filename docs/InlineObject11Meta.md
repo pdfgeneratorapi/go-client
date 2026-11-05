@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **DisplayName** | Pointer to **string** | Document name without the file extension. | [optional] 
 **Encoding** | Pointer to **string** | Document encoding | [optional] 
 **ContentType** | Pointer to **string** | Document content type. | [optional] 
-**PublicId** | Pointer to **string** | Document public id | [optional] 
+**Stats** | Pointer to [**InlineObject11MetaStats**](InlineObject11MetaStats.md) |  | [optional] 
+**PublicId** | Pointer to **string** | Document public id, if output&#x3D;url was used for document storage | [optional] 
 
 ## Methods
 
@@ -128,6 +129,31 @@ SetContentType sets ContentType field to given value.
 `func (o *InlineObject11Meta) HasContentType() bool`
 
 HasContentType returns a boolean if a field has been set.
+
+### GetStats
+
+`func (o *InlineObject11Meta) GetStats() InlineObject11MetaStats`
+
+GetStats returns the Stats field if non-nil, zero value otherwise.
+
+### GetStatsOk
+
+`func (o *InlineObject11Meta) GetStatsOk() (*InlineObject11MetaStats, bool)`
+
+GetStatsOk returns a tuple with the Stats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStats
+
+`func (o *InlineObject11Meta) SetStats(v InlineObject11MetaStats)`
+
+SetStats sets Stats field to given value.
+
+### HasStats
+
+`func (o *InlineObject11Meta) HasStats() bool`
+
+HasStats returns a boolean if a field has been set.
 
 ### GetPublicId
 

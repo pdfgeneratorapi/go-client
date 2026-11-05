@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | Pointer to **string** | Public URL | [optional] 
+**Url** | **string** | Public HTTPS URL of an HTML page | 
 **PaperSize** | Pointer to **string** | PDF page size | [optional] [default to "a4"]
 **Orientation** | Pointer to **string** |  | [optional] [default to "portrait"]
 **Output** | Pointer to **string** | Output | [optional] [default to "base64"]
-**Filename** | Pointer to **string** | Document name | [optional] 
+**Filename** | Pointer to **string** | Document name. Left out, the document gets a generated name. | [optional] 
 **WaitForCss** | Pointer to **string** | CSS selector of an element to wait for before the page is printed; see &#x60;wait_for_css_state&#x60; | [optional] 
 **WaitForCssState** | Pointer to **string** | How &#x60;wait_for_css&#x60; matches. &#x60;present&#x60; waits until the element exists, even if it is empty or hidden (e.g. a &#x60;&lt;div id&#x3D;\&quot;report-ready\&quot;&gt;&lt;/div&gt;&#x60; marker); &#x60;visible&#x60; waits until it is also visible with a non-empty size (e.g. a chart that appears when data has loaded). | [optional] [default to "present"]
 **WaitForJs** | Pointer to **string** | JavaScript expression evaluated in the page every 100ms; the page is printed once it is truthy. Promises are awaited, and an expression that throws counts as not ready yet. | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewConvertURL2PDFRequest
 
-`func NewConvertURL2PDFRequest() *ConvertURL2PDFRequest`
+`func NewConvertURL2PDFRequest(url string, ) *ConvertURL2PDFRequest`
 
 NewConvertURL2PDFRequest instantiates a new ConvertURL2PDFRequest object
 This constructor will assign default values to properties that have it defined,
@@ -53,11 +53,6 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
-
-`func (o *ConvertURL2PDFRequest) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
 
 ### GetPaperSize
 

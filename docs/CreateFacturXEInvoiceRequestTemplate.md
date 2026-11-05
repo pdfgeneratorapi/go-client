@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **int32** | Template ID | [optional] 
+**Id** | [**CreateFacturXEInvoiceRequestTemplateId**](CreateFacturXEInvoiceRequestTemplateId.md) |  | 
 **VersionId** | Pointer to **int32** | Template version ID | [optional] 
-**Data** | Pointer to **map[string]interface{}** | JSON payload that represents the Peppol BIS Billing 3.0 UBL Invoice (https://docs.peppol.eu/poacc/billing/3.0/) Use the Get schema endpoint to see the detailed payload structure. | [optional] 
+**Data** | **map[string]interface{}** | JSON payload that represents the Peppol BIS Billing 3.0 UBL Invoice (https://docs.peppol.eu/poacc/billing/3.0/) Use the Get schema endpoint to see the detailed payload structure. | 
 
 ## Methods
 
 ### NewCreateFacturXEInvoiceRequestTemplate
 
-`func NewCreateFacturXEInvoiceRequestTemplate() *CreateFacturXEInvoiceRequestTemplate`
+`func NewCreateFacturXEInvoiceRequestTemplate(id CreateFacturXEInvoiceRequestTemplateId, data map[string]interface{}, ) *CreateFacturXEInvoiceRequestTemplate`
 
 NewCreateFacturXEInvoiceRequestTemplate instantiates a new CreateFacturXEInvoiceRequestTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -29,28 +29,23 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *CreateFacturXEInvoiceRequestTemplate) GetId() int32`
+`func (o *CreateFacturXEInvoiceRequestTemplate) GetId() CreateFacturXEInvoiceRequestTemplateId`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *CreateFacturXEInvoiceRequestTemplate) GetIdOk() (*int32, bool)`
+`func (o *CreateFacturXEInvoiceRequestTemplate) GetIdOk() (*CreateFacturXEInvoiceRequestTemplateId, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *CreateFacturXEInvoiceRequestTemplate) SetId(v int32)`
+`func (o *CreateFacturXEInvoiceRequestTemplate) SetId(v CreateFacturXEInvoiceRequestTemplateId)`
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *CreateFacturXEInvoiceRequestTemplate) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetVersionId
 
@@ -96,11 +91,6 @@ and a boolean to check if the value has been set.
 
 SetData sets Data field to given value.
 
-### HasData
-
-`func (o *CreateFacturXEInvoiceRequestTemplate) HasData() bool`
-
-HasData returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

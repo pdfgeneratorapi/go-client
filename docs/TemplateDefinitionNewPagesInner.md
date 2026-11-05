@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **Width** | Pointer to **float32** | Page width in units | [optional] 
 **Height** | Pointer to **float32** | Page height in units | [optional] 
 **Margins** | Pointer to [**TemplateDefinitionNewPagesInnerMargins**](TemplateDefinitionNewPagesInnerMargins.md) |  | [optional] 
-**Border** | Pointer to **bool** |  | [optional] [default to false]
-**Components** | Pointer to **[]map[string]interface{}** |  | [optional] 
-**Layout** | Pointer to **map[string]interface{}** | Defines page specific layout which can differ from the main template layout (e.g page format, margins). | [optional] 
+**Border** | Pointer to **bool** | Stored for older templates. It draws nothing. | [optional] [default to false]
+**Components** | Pointer to **[]map[string]interface{}** | The page&#39;s components. The fields of each depend on its cls; the template schema (Get schema endpoint) lists them. | [optional] 
+**Layout** | Pointer to [**TemplateDefinitionNewPagesInnerLayout**](TemplateDefinitionNewPagesInnerLayout.md) |  | [optional] 
 **ConditionalFormats** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **BackgroundImage** | Pointer to **NullableString** | Defines background image for the page. | [optional] 
 
@@ -159,20 +159,20 @@ HasComponents returns a boolean if a field has been set.
 
 ### GetLayout
 
-`func (o *TemplateDefinitionNewPagesInner) GetLayout() map[string]interface{}`
+`func (o *TemplateDefinitionNewPagesInner) GetLayout() TemplateDefinitionNewPagesInnerLayout`
 
 GetLayout returns the Layout field if non-nil, zero value otherwise.
 
 ### GetLayoutOk
 
-`func (o *TemplateDefinitionNewPagesInner) GetLayoutOk() (*map[string]interface{}, bool)`
+`func (o *TemplateDefinitionNewPagesInner) GetLayoutOk() (*TemplateDefinitionNewPagesInnerLayout, bool)`
 
 GetLayoutOk returns a tuple with the Layout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLayout
 
-`func (o *TemplateDefinitionNewPagesInner) SetLayout(v map[string]interface{})`
+`func (o *TemplateDefinitionNewPagesInner) SetLayout(v TemplateDefinitionNewPagesInnerLayout)`
 
 SetLayout sets Layout field to given value.
 
@@ -182,16 +182,6 @@ SetLayout sets Layout field to given value.
 
 HasLayout returns a boolean if a field has been set.
 
-### SetLayoutNil
-
-`func (o *TemplateDefinitionNewPagesInner) SetLayoutNil(b bool)`
-
- SetLayoutNil sets the value for Layout to be an explicit nil
-
-### UnsetLayout
-`func (o *TemplateDefinitionNewPagesInner) UnsetLayout()`
-
-UnsetLayout ensures that no value is present for Layout, not even an explicit nil
 ### GetConditionalFormats
 
 `func (o *TemplateDefinitionNewPagesInner) GetConditionalFormats() []map[string]interface{}`

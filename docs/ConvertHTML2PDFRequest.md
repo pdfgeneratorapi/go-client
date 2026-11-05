@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Content** | Pointer to **string** | HTML content | [optional] 
+**Content** | **string** | HTML content | 
 **PaperSize** | Pointer to **string** | PDF page size | [optional] [default to "a4"]
 **Orientation** | Pointer to **string** |  | [optional] [default to "portrait"]
 **Output** | Pointer to **string** | Output | [optional] [default to "base64"]
-**Filename** | Pointer to **string** | Document name | [optional] 
+**Filename** | Pointer to **string** | Document name. Left out, the document gets a generated name. | [optional] 
 
 ## Methods
 
 ### NewConvertHTML2PDFRequest
 
-`func NewConvertHTML2PDFRequest() *ConvertHTML2PDFRequest`
+`func NewConvertHTML2PDFRequest(content string, ) *ConvertHTML2PDFRequest`
 
 NewConvertHTML2PDFRequest instantiates a new ConvertHTML2PDFRequest object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetContent sets Content field to given value.
 
-### HasContent
-
-`func (o *ConvertHTML2PDFRequest) HasContent() bool`
-
-HasContent returns a boolean if a field has been set.
 
 ### GetPaperSize
 

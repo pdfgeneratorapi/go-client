@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | Pointer to **string** | Public URL to the document. | [optional] 
+**Response** | Pointer to **string** | Base64 encoded document if the output&#x3D;base64 is used or URL to the document when the output&#x3D;url is used. | [optional] 
 **Meta** | Pointer to [**InlineObject11Meta**](InlineObject11Meta.md) |  | [optional] 
 
 ## Methods

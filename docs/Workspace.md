@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **Id** | Pointer to **int32** | Internal workspace id | [optional] 
 **Identifier** | Pointer to **string** | The unique workspace idenfitifer specified by your application | [optional] 
 **IsMasterWorkspace** | Pointer to **bool** | True if a master workspace | [optional] 
+**IsAdmin** | Pointer to **bool** | True if the workspace is an organization administrator. Returned only when creating a workspace. | [optional] 
+**IsOwner** | Pointer to **bool** | True if the workspace owns the organization. Returned only when creating a workspace. | [optional] 
 **CreatedAt** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -102,6 +104,56 @@ SetIsMasterWorkspace sets IsMasterWorkspace field to given value.
 `func (o *Workspace) HasIsMasterWorkspace() bool`
 
 HasIsMasterWorkspace returns a boolean if a field has been set.
+
+### GetIsAdmin
+
+`func (o *Workspace) GetIsAdmin() bool`
+
+GetIsAdmin returns the IsAdmin field if non-nil, zero value otherwise.
+
+### GetIsAdminOk
+
+`func (o *Workspace) GetIsAdminOk() (*bool, bool)`
+
+GetIsAdminOk returns a tuple with the IsAdmin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsAdmin
+
+`func (o *Workspace) SetIsAdmin(v bool)`
+
+SetIsAdmin sets IsAdmin field to given value.
+
+### HasIsAdmin
+
+`func (o *Workspace) HasIsAdmin() bool`
+
+HasIsAdmin returns a boolean if a field has been set.
+
+### GetIsOwner
+
+`func (o *Workspace) GetIsOwner() bool`
+
+GetIsOwner returns the IsOwner field if non-nil, zero value otherwise.
+
+### GetIsOwnerOk
+
+`func (o *Workspace) GetIsOwnerOk() (*bool, bool)`
+
+GetIsOwnerOk returns a tuple with the IsOwner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsOwner
+
+`func (o *Workspace) SetIsOwner(v bool)`
+
+SetIsOwner sets IsOwner field to given value.
+
+### HasIsOwner
+
+`func (o *Workspace) HasIsOwner() bool`
+
+HasIsOwner returns a boolean if a field has been set.
 
 ### GetCreatedAt
 

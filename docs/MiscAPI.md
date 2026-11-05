@@ -57,7 +57,7 @@ Other parameters are passed through a pointer to a apiGetStatusRequest struct vi
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 

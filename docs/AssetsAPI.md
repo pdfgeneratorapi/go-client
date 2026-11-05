@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GenerateQRCode
 
-> GenerateQRCode201Response GenerateQRCode(ctx).GenerateQRCodeRequest(generateQRCodeRequest).Execute()
+> *os.File GenerateQRCode(ctx).GenerateQRCodeRequest(generateQRCodeRequest).Execute()
 
 Generate QR Code
 
@@ -38,7 +38,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AssetsAPI.GenerateQRCode``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GenerateQRCode`: GenerateQRCode201Response
+	// response from `GenerateQRCode`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `AssetsAPI.GenerateQRCode`: %v\n", resp)
 }
 ```
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateQRCode201Response**](GenerateQRCode201Response.md)
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: image/png, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

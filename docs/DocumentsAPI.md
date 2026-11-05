@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## GenerateDocument
 
-> InlineObject9 GenerateDocument(ctx).GenerateDocumentRequest(generateDocumentRequest).Execute()
+> InlineObject8 GenerateDocument(ctx).GenerateDocumentRequest(generateDocumentRequest).Execute()
 
 Generate document
 
@@ -118,7 +118,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GenerateDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GenerateDocument`: InlineObject9
+	// response from `GenerateDocument`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GenerateDocument`: %v\n", resp)
 }
 ```
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## GenerateDocumentAsynchronous
 
-> InlineObject23 GenerateDocumentAsynchronous(ctx).GenerateDocumentAsynchronousRequest(generateDocumentAsynchronousRequest).Execute()
+> InlineObject22 GenerateDocumentAsynchronous(ctx).GenerateDocumentAsynchronousRequest(generateDocumentAsynchronousRequest).Execute()
 
 Generate document (async)
 
@@ -175,7 +175,7 @@ import (
 )
 
 func main() {
-	generateDocumentAsynchronousRequest := *openapiclient.NewGenerateDocumentAsynchronousRequest() // GenerateDocumentAsynchronousRequest | Request parameters, including template id, data and formats.
+	generateDocumentAsynchronousRequest := *openapiclient.NewGenerateDocumentAsynchronousRequest(*openapiclient.NewCallbackParam("https://example.org/document-callback")) // GenerateDocumentAsynchronousRequest | Request parameters, including template id, data and formats.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -184,7 +184,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GenerateDocumentAsynchronous``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GenerateDocumentAsynchronous`: InlineObject23
+	// response from `GenerateDocumentAsynchronous`: InlineObject22
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GenerateDocumentAsynchronous`: %v\n", resp)
 }
 ```
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject23**](InlineObject23.md)
+[**InlineObject22**](InlineObject22.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ## GenerateDocumentBatch
 
-> InlineObject9 GenerateDocumentBatch(ctx).GenerateDocumentBatchRequest(generateDocumentBatchRequest).Execute()
+> InlineObject8 GenerateDocumentBatch(ctx).GenerateDocumentBatchRequest(generateDocumentBatchRequest).Execute()
 
 Generate document (batch)
 
@@ -241,7 +241,7 @@ import (
 )
 
 func main() {
-	generateDocumentBatchRequest := *openapiclient.NewGenerateDocumentBatchRequest() // GenerateDocumentBatchRequest | Request parameters, including template id, data and formats.
+	generateDocumentBatchRequest := *openapiclient.NewGenerateDocumentBatchRequest([]openapiclient.TemplateParam{*openapiclient.NewTemplateParam()}) // GenerateDocumentBatchRequest | Request parameters, including template id, data and formats.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -250,7 +250,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GenerateDocumentBatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GenerateDocumentBatch`: InlineObject9
+	// response from `GenerateDocumentBatch`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GenerateDocumentBatch`: %v\n", resp)
 }
 ```
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ## GenerateDocumentBatchAsynchronous
 
-> InlineObject23 GenerateDocumentBatchAsynchronous(ctx).GenerateDocumentBatchAsynchronousRequest(generateDocumentBatchAsynchronousRequest).Execute()
+> InlineObject22 GenerateDocumentBatchAsynchronous(ctx).GenerateDocumentBatchAsynchronousRequest(generateDocumentBatchAsynchronousRequest).Execute()
 
 Generate document (batch + async)
 
@@ -307,7 +307,7 @@ import (
 )
 
 func main() {
-	generateDocumentBatchAsynchronousRequest := *openapiclient.NewGenerateDocumentBatchAsynchronousRequest() // GenerateDocumentBatchAsynchronousRequest | Request parameters, including template id, data and formats.
+	generateDocumentBatchAsynchronousRequest := *openapiclient.NewGenerateDocumentBatchAsynchronousRequest([]openapiclient.TemplateParam{*openapiclient.NewTemplateParam()}, *openapiclient.NewCallbackParam("https://example.org/document-callback")) // GenerateDocumentBatchAsynchronousRequest | Request parameters, including template id, data and formats.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -316,7 +316,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GenerateDocumentBatchAsynchronous``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GenerateDocumentBatchAsynchronous`: InlineObject23
+	// response from `GenerateDocumentBatchAsynchronous`: InlineObject22
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GenerateDocumentBatchAsynchronous`: %v\n", resp)
 }
 ```
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject23**](InlineObject23.md)
+[**InlineObject22**](InlineObject22.md)
 
 ### Authorization
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 
 ## GetAsyncJobStatus
 
-> InlineObject13 GetAsyncJobStatus(ctx, jobId).Execute()
+> InlineObject12 GetAsyncJobStatus(ctx, jobId).Execute()
 
 Get job status
 
@@ -454,7 +454,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetAsyncJobStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAsyncJobStatus`: InlineObject13
+	// response from `GetAsyncJobStatus`: InlineObject12
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetAsyncJobStatus`: %v\n", resp)
 }
 ```
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject13**](InlineObject13.md)
+[**InlineObject12**](InlineObject12.md)
 
 ### Authorization
 
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 
 ## GetDocument
 
-> InlineObject11 GetDocument(ctx, publicId).Execute()
+> InlineObject10 GetDocument(ctx, publicId).Execute()
 
 Get document
 
@@ -524,7 +524,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetDocument`: InlineObject11
+	// response from `GetDocument`: InlineObject10
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocument`: %v\n", resp)
 }
 ```
@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject11**](InlineObject11.md)
+[**InlineObject10**](InlineObject10.md)
 
 ### Authorization
 
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 ## GetDocumentActions
 
-> InlineObject18 GetDocumentActions(ctx, publicId).Execute()
+> InlineObject17 GetDocumentActions(ctx, publicId).Execute()
 
 Get document actions
 
@@ -594,7 +594,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocumentActions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetDocumentActions`: InlineObject18
+	// response from `GetDocumentActions`: InlineObject17
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocumentActions`: %v\n", resp)
 }
 ```
@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject17**](InlineObject17.md)
 
 ### Authorization
 
@@ -636,7 +636,7 @@ Name | Type | Description  | Notes
 
 ## GetDocumentSignatures
 
-> InlineObject17 GetDocumentSignatures(ctx, publicId).Version(version).Execute()
+> InlineObject16 GetDocumentSignatures(ctx, publicId).Version(version).Execute()
 
 Validate document signatures
 
@@ -665,7 +665,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocumentSignatures``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetDocumentSignatures`: InlineObject17
+	// response from `GetDocumentSignatures`: InlineObject16
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocumentSignatures`: %v\n", resp)
 }
 ```
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject17**](InlineObject17.md)
+[**InlineObject16**](InlineObject16.md)
 
 ### Authorization
 
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 
 ## GetDocumentVersions
 
-> InlineObject16 GetDocumentVersions(ctx, publicId).Execute()
+> InlineObject15 GetDocumentVersions(ctx, publicId).Execute()
 
 Get document versions
 
@@ -736,7 +736,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocumentVersions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetDocumentVersions`: InlineObject16
+	// response from `GetDocumentVersions`: InlineObject15
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocumentVersions`: %v\n", resp)
 }
 ```
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject15**](InlineObject15.md)
 
 ### Authorization
 
@@ -778,7 +778,7 @@ Name | Type | Description  | Notes
 
 ## GetDocuments
 
-> InlineObject15 GetDocuments(ctx).TemplateId(templateId).StartDate(startDate).EndDate(endDate).Page(page).PerPage(perPage).Execute()
+> InlineObject14 GetDocuments(ctx).TemplateId(templateId).StartDate(startDate).EndDate(endDate).Page(page).PerPage(perPage).Search(search).Format(format).Execute()
 
 Get documents
 
@@ -802,15 +802,17 @@ func main() {
 	endDate := "2022-08-05 12:00:00" // string | End date. Format: Y-m-d H:i:s. Defaults to current timestamp (optional)
 	page := int32(1) // int32 | Pagination: page to return (optional) (default to 1)
 	perPage := int32(20) // int32 | Pagination: How many records to return per page (optional) (default to 15)
+	search := "Invoice" // string | Returns documents whose name contains the search value. A numeric value also matches the template ID. (optional)
+	format := "pdf" // string | Returns only documents in this format (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.GetDocuments(context.Background()).TemplateId(templateId).StartDate(startDate).EndDate(endDate).Page(page).PerPage(perPage).Execute()
+	resp, r, err := apiClient.DocumentsAPI.GetDocuments(context.Background()).TemplateId(templateId).StartDate(startDate).EndDate(endDate).Page(page).PerPage(perPage).Search(search).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocuments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetDocuments`: InlineObject15
+	// response from `GetDocuments`: InlineObject14
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocuments`: %v\n", resp)
 }
 ```
@@ -831,10 +833,12 @@ Name | Type | Description  | Notes
  **endDate** | **string** | End date. Format: Y-m-d H:i:s. Defaults to current timestamp | 
  **page** | **int32** | Pagination: page to return | [default to 1]
  **perPage** | **int32** | Pagination: How many records to return per page | [default to 15]
+ **search** | **string** | Returns documents whose name contains the search value. A numeric value also matches the template ID. | 
+ **format** | **string** | Returns only documents in this format | 
 
 ### Return type
 
-[**InlineObject15**](InlineObject15.md)
+[**InlineObject14**](InlineObject14.md)
 
 ### Authorization
 
@@ -852,7 +856,7 @@ Name | Type | Description  | Notes
 
 ## StoreDocument
 
-> InlineObject11 StoreDocument(ctx).StoreDocumentRequest(storeDocumentRequest).Execute()
+> InlineObject10 StoreDocument(ctx).StoreDocumentRequest(storeDocumentRequest).Execute()
 
 Store document
 
@@ -880,7 +884,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.StoreDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `StoreDocument`: InlineObject11
+	// response from `StoreDocument`: InlineObject10
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.StoreDocument`: %v\n", resp)
 }
 ```
@@ -900,7 +904,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject11**](InlineObject11.md)
+[**InlineObject10**](InlineObject10.md)
 
 ### Authorization
 

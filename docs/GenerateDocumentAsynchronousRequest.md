@@ -5,19 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Template** | Pointer to [**TemplateParam**](TemplateParam.md) |  | [optional] 
-**Callback** | Pointer to [**CallbackParam**](CallbackParam.md) |  | [optional] 
+**Callback** | [**CallbackParam**](CallbackParam.md) |  | 
 **Format** | Pointer to [**FormatParam**](FormatParam.md) |  | [optional] [default to FORMATPARAM_PDF]
 **Output** | Pointer to [**AsyncOutputParam**](AsyncOutputParam.md) |  | [optional] [default to ASYNCOUTPUTPARAM_BASE64]
 **Name** | Pointer to **string** | Generated document name (optional) | [optional] [default to ""]
 **Testing** | Pointer to **bool** | When set to true the generation is not counted as merge (monthly usage), but a large PREVIEW stamp is added. | [optional] [default to false]
 **MakeAccessible** | Pointer to **bool** | Enables semantic document tagging. When enabled, a separate Make Accessible action is executed, which consumes additional credits. | [optional] [default to false]
+**Print** | Pointer to **bool** | When set to true, the PDF opens the print dialog when it is opened in a viewer. | [optional] [default to false]
+**EmptyLabels** | Pointer to **int32** | Number of label positions to leave empty at the start of the first sheet. Only applies to label templates. | [optional] [default to 0]
+**Attachments** | Pointer to [**[]AttachmentsParamInner**](AttachmentsParamInner.md) | Files embedded into the generated PDF as attachments. Only PDF and XML files are accepted. | [optional] 
 **Metadata** | Pointer to [**MetadataParam**](MetadataParam.md) |  | [optional] 
 
 ## Methods
 
 ### NewGenerateDocumentAsynchronousRequest
 
-`func NewGenerateDocumentAsynchronousRequest() *GenerateDocumentAsynchronousRequest`
+`func NewGenerateDocumentAsynchronousRequest(callback CallbackParam, ) *GenerateDocumentAsynchronousRequest`
 
 NewGenerateDocumentAsynchronousRequest instantiates a new GenerateDocumentAsynchronousRequest object
 This constructor will assign default values to properties that have it defined,
@@ -76,11 +79,6 @@ and a boolean to check if the value has been set.
 
 SetCallback sets Callback field to given value.
 
-### HasCallback
-
-`func (o *GenerateDocumentAsynchronousRequest) HasCallback() bool`
-
-HasCallback returns a boolean if a field has been set.
 
 ### GetFormat
 
@@ -206,6 +204,81 @@ SetMakeAccessible sets MakeAccessible field to given value.
 `func (o *GenerateDocumentAsynchronousRequest) HasMakeAccessible() bool`
 
 HasMakeAccessible returns a boolean if a field has been set.
+
+### GetPrint
+
+`func (o *GenerateDocumentAsynchronousRequest) GetPrint() bool`
+
+GetPrint returns the Print field if non-nil, zero value otherwise.
+
+### GetPrintOk
+
+`func (o *GenerateDocumentAsynchronousRequest) GetPrintOk() (*bool, bool)`
+
+GetPrintOk returns a tuple with the Print field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrint
+
+`func (o *GenerateDocumentAsynchronousRequest) SetPrint(v bool)`
+
+SetPrint sets Print field to given value.
+
+### HasPrint
+
+`func (o *GenerateDocumentAsynchronousRequest) HasPrint() bool`
+
+HasPrint returns a boolean if a field has been set.
+
+### GetEmptyLabels
+
+`func (o *GenerateDocumentAsynchronousRequest) GetEmptyLabels() int32`
+
+GetEmptyLabels returns the EmptyLabels field if non-nil, zero value otherwise.
+
+### GetEmptyLabelsOk
+
+`func (o *GenerateDocumentAsynchronousRequest) GetEmptyLabelsOk() (*int32, bool)`
+
+GetEmptyLabelsOk returns a tuple with the EmptyLabels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmptyLabels
+
+`func (o *GenerateDocumentAsynchronousRequest) SetEmptyLabels(v int32)`
+
+SetEmptyLabels sets EmptyLabels field to given value.
+
+### HasEmptyLabels
+
+`func (o *GenerateDocumentAsynchronousRequest) HasEmptyLabels() bool`
+
+HasEmptyLabels returns a boolean if a field has been set.
+
+### GetAttachments
+
+`func (o *GenerateDocumentAsynchronousRequest) GetAttachments() []AttachmentsParamInner`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *GenerateDocumentAsynchronousRequest) GetAttachmentsOk() (*[]AttachmentsParamInner, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *GenerateDocumentAsynchronousRequest) SetAttachments(v []AttachmentsParamInner)`
+
+SetAttachments sets Attachments field to given value.
+
+### HasAttachments
+
+`func (o *GenerateDocumentAsynchronousRequest) HasAttachments() bool`
+
+HasAttachments returns a boolean if a field has been set.
 
 ### GetMetadata
 

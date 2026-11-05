@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | Pointer to **string** | Base64 encoded document if the output&#x3D;base64 is used or URL to the document when the output&#x3D;url is used. | [optional] 
+**Response** | Pointer to **[]string** | Array of base64 encoded images, one per converted page. | [optional] 
 **Meta** | Pointer to [**InlineObject9Meta**](InlineObject9Meta.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetResponse
 
-`func (o *InlineObject9) GetResponse() string`
+`func (o *InlineObject9) GetResponse() []string`
 
 GetResponse returns the Response field if non-nil, zero value otherwise.
 
 ### GetResponseOk
 
-`func (o *InlineObject9) GetResponseOk() (*string, bool)`
+`func (o *InlineObject9) GetResponseOk() (*[]string, bool)`
 
 GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponse
 
-`func (o *InlineObject9) SetResponse(v string)`
+`func (o *InlineObject9) SetResponse(v []string)`
 
 SetResponse sets Response field to given value.
 

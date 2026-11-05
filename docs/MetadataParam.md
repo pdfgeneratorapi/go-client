@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Author** | Pointer to **string** | Document author | [optional] [default to "Organization name"]
-**Language** | Pointer to **string** | Document language | [optional] [default to "en"]
+**Language** | Pointer to **string** | Document language as a BCP 47 language tag, e.g. &#x60;en&#x60; or &#x60;de-AT&#x60; | [optional] [default to "en"]
 
 ## Methods
 

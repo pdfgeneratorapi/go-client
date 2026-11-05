@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## CopyTemplate
 
-> InlineObject19 CopyTemplate(ctx, templateId).CopyTemplateRequest(copyTemplateRequest).Execute()
+> InlineObject18 CopyTemplate(ctx, templateId).CopyTemplateRequest(copyTemplateRequest).Execute()
 
 Copy template
 
@@ -49,7 +49,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.CopyTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CopyTemplate`: InlineObject19
+	// response from `CopyTemplate`: InlineObject18
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.CopyTemplate`: %v\n", resp)
 }
 ```
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## CreateTemplate
 
-> InlineObject19 CreateTemplate(ctx).TemplateDefinitionNew(templateDefinitionNew).Execute()
+> InlineObject18 CreateTemplate(ctx).TemplateDefinitionNew(templateDefinitionNew).Execute()
 
 Create template
 
@@ -120,7 +120,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.CreateTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTemplate`: InlineObject19
+	// response from `CreateTemplate`: InlineObject18
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.CreateTemplate`: %v\n", resp)
 }
 ```
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ## GetTemplate
 
-> InlineObject19 GetTemplate(ctx, templateId).Execute()
+> InlineObject18 GetTemplate(ctx, templateId).Execute()
 
 Get template
 
@@ -254,7 +254,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.GetTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTemplate`: InlineObject19
+	// response from `GetTemplate`: InlineObject18
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.GetTemplate`: %v\n", resp)
 }
 ```
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## GetTemplateSchema
 
-> map[string]interface{} GetTemplateSchema(ctx).Execute()
+> GetTemplateSchema200Response GetTemplateSchema(ctx).Execute()
 
 Get schema
 
@@ -393,7 +393,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.GetTemplateSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTemplateSchema`: map[string]interface{}
+	// response from `GetTemplateSchema`: GetTemplateSchema200Response
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.GetTemplateSchema`: %v\n", resp)
 }
 ```
@@ -409,11 +409,11 @@ Other parameters are passed through a pointer to a apiGetTemplateSchemaRequest s
 
 ### Return type
 
-**map[string]interface{}**
+[**GetTemplateSchema200Response**](GetTemplateSchema200Response.md)
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -427,7 +427,7 @@ Other parameters are passed through a pointer to a apiGetTemplateSchemaRequest s
 
 ## GetTemplates
 
-> InlineObject4 GetTemplates(ctx).Name(name).Tags(tags).Access(access).Page(page).PerPage(perPage).Execute()
+> InlineObject4 GetTemplates(ctx).Name(name).Tags(tags).Access(access).Page(page).PerPage(perPage).OrderBy(orderBy).OrderDirection(orderDirection).Search(search).Execute()
 
 Get templates
 
@@ -451,10 +451,13 @@ func main() {
 	access := "private" // string | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. (optional) (default to "")
 	page := int32(1) // int32 | Pagination: page to return (optional) (default to 1)
 	perPage := int32(20) // int32 | Pagination: How many records to return per page (optional) (default to 15)
+	orderBy := "name" // string | Field to sort the templates by. Ignored when `name` or `tags` is set. (optional) (default to "updated_at")
+	orderDirection := "asc" // string | Sort direction. Ignored when `name` or `tags` is set. (optional) (default to "desc")
+	search := "Invoice" // string | Returns templates whose ID, name, tags, creation date or modification date contains the search value. Ignored when `name` or `tags` is set. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TemplatesAPI.GetTemplates(context.Background()).Name(name).Tags(tags).Access(access).Page(page).PerPage(perPage).Execute()
+	resp, r, err := apiClient.TemplatesAPI.GetTemplates(context.Background()).Name(name).Tags(tags).Access(access).Page(page).PerPage(perPage).OrderBy(orderBy).OrderDirection(orderDirection).Search(search).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.GetTemplates``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -480,6 +483,9 @@ Name | Type | Description  | Notes
  **access** | **string** | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. | [default to &quot;&quot;]
  **page** | **int32** | Pagination: page to return | [default to 1]
  **perPage** | **int32** | Pagination: How many records to return per page | [default to 15]
+ **orderBy** | **string** | Field to sort the templates by. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [default to &quot;updated_at&quot;]
+ **orderDirection** | **string** | Sort direction. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [default to &quot;desc&quot;]
+ **search** | **string** | Returns templates whose ID, name, tags, creation date or modification date contains the search value. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | 
 
 ### Return type
 
@@ -501,7 +507,7 @@ Name | Type | Description  | Notes
 
 ## ImportTemplate
 
-> InlineObject19 ImportTemplate(ctx).ImportTemplateRequest(importTemplateRequest).Execute()
+> InlineObject18 ImportTemplate(ctx).ImportTemplateRequest(importTemplateRequest).Execute()
 
 Import template
 
@@ -529,7 +535,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.ImportTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ImportTemplate`: InlineObject19
+	// response from `ImportTemplate`: InlineObject18
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.ImportTemplate`: %v\n", resp)
 }
 ```
@@ -549,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -639,7 +645,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTemplate
 
-> InlineObject19 UpdateTemplate(ctx, templateId).TemplateDefinitionNew(templateDefinitionNew).Execute()
+> InlineObject18 UpdateTemplate(ctx, templateId).TemplateDefinitionUpdate(templateDefinitionUpdate).Execute()
 
 Update template
 
@@ -659,16 +665,16 @@ import (
 
 func main() {
 	templateId := int32(19375) // int32 | Template unique identifier
-	templateDefinitionNew := *openapiclient.NewTemplateDefinitionNew("Invoice template") // TemplateDefinitionNew | Template configuration
+	templateDefinitionUpdate := *openapiclient.NewTemplateDefinitionUpdate() // TemplateDefinitionUpdate | The template configuration to change
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TemplatesAPI.UpdateTemplate(context.Background(), templateId).TemplateDefinitionNew(templateDefinitionNew).Execute()
+	resp, r, err := apiClient.TemplatesAPI.UpdateTemplate(context.Background(), templateId).TemplateDefinitionUpdate(templateDefinitionUpdate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.UpdateTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateTemplate`: InlineObject19
+	// response from `UpdateTemplate`: InlineObject18
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.UpdateTemplate`: %v\n", resp)
 }
 ```
@@ -689,11 +695,11 @@ Other parameters are passed through a pointer to a apiUpdateTemplateRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **templateDefinitionNew** | [**TemplateDefinitionNew**](TemplateDefinitionNew.md) | Template configuration | 
+ **templateDefinitionUpdate** | [**TemplateDefinitionUpdate**](TemplateDefinitionUpdate.md) | The template configuration to change | 
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -763,7 +769,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 

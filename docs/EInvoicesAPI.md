@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## CreateFacturXEInvoice
 
-> InlineObject9 CreateFacturXEInvoice(ctx).CreateFacturXEInvoiceRequest(createFacturXEInvoiceRequest).Execute()
+> InlineObject8 CreateFacturXEInvoice(ctx).CreateFacturXEInvoiceRequest(createFacturXEInvoiceRequest).Execute()
 
 Create Factur-X eInvoice
 
@@ -98,7 +98,7 @@ import (
 )
 
 func main() {
-	createFacturXEInvoiceRequest := *openapiclient.NewCreateFacturXEInvoiceRequest(*openapiclient.NewCreateFacturXEInvoiceRequestTemplate()) // CreateFacturXEInvoiceRequest | eInvoice conversion
+	createFacturXEInvoiceRequest := *openapiclient.NewCreateFacturXEInvoiceRequest(*openapiclient.NewCreateFacturXEInvoiceRequestTemplate(openapiclient.createFacturXEInvoice_request_template_id{Int32: new(int32)}, map[string]interface{}(123))) // CreateFacturXEInvoiceRequest | eInvoice conversion
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `EInvoicesAPI.CreateFacturXEInvoice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateFacturXEInvoice`: InlineObject9
+	// response from `CreateFacturXEInvoice`: InlineObject8
 	fmt.Fprintf(os.Stdout, "Response from `EInvoicesAPI.CreateFacturXEInvoice`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## CreateXRechnungEInvoice
 
-> InlineObject CreateXRechnungEInvoice(ctx).CreateEInvoiceRequest(createEInvoiceRequest).Execute()
+> InlineObject CreateXRechnungEInvoice(ctx).CreateXRechnungEInvoiceRequest(createXRechnungEInvoiceRequest).Execute()
 
 Create XRechnung eInvoice
 
@@ -164,11 +164,11 @@ import (
 )
 
 func main() {
-	createEInvoiceRequest := *openapiclient.NewCreateEInvoiceRequest(map[string]interface{}(123)) // CreateEInvoiceRequest | eInvoice conversion
+	createXRechnungEInvoiceRequest := *openapiclient.NewCreateXRechnungEInvoiceRequest(map[string]interface{}(123)) // CreateXRechnungEInvoiceRequest | eInvoice conversion
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EInvoicesAPI.CreateXRechnungEInvoice(context.Background()).CreateEInvoiceRequest(createEInvoiceRequest).Execute()
+	resp, r, err := apiClient.EInvoicesAPI.CreateXRechnungEInvoice(context.Background()).CreateXRechnungEInvoiceRequest(createXRechnungEInvoiceRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EInvoicesAPI.CreateXRechnungEInvoice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -189,7 +189,7 @@ Other parameters are passed through a pointer to a apiCreateXRechnungEInvoiceReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createEInvoiceRequest** | [**CreateEInvoiceRequest**](CreateEInvoiceRequest.md) | eInvoice conversion | 
+ **createXRechnungEInvoiceRequest** | [**CreateXRechnungEInvoiceRequest**](CreateXRechnungEInvoiceRequest.md) | eInvoice conversion | 
 
 ### Return type
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ## GetEInvoiceSchema
 
-> map[string]interface{} GetEInvoiceSchema(ctx).Execute()
+> GetEInvoiceSchema200Response GetEInvoiceSchema(ctx).Execute()
 
 Get schema
 
@@ -238,7 +238,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `EInvoicesAPI.GetEInvoiceSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetEInvoiceSchema`: map[string]interface{}
+	// response from `GetEInvoiceSchema`: GetEInvoiceSchema200Response
 	fmt.Fprintf(os.Stdout, "Response from `EInvoicesAPI.GetEInvoiceSchema`: %v\n", resp)
 }
 ```
@@ -254,11 +254,11 @@ Other parameters are passed through a pointer to a apiGetEInvoiceSchemaRequest s
 
 ### Return type
 
-**map[string]interface{}**
+[**GetEInvoiceSchema200Response**](GetEInvoiceSchema200Response.md)
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 

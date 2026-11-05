@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ConversionApi** | Pointer to [**StatusParam**](StatusParam.md) |  | [optional] [default to STATUSPARAM_OK]
 **GeneratorApiSync** | Pointer to [**StatusParam**](StatusParam.md) |  | [optional] [default to STATUSPARAM_OK]
 **GeneratorApiAsync** | Pointer to [**StatusParam**](StatusParam.md) |  | [optional] [default to STATUSPARAM_OK]
+**PdfServices** | Pointer to [**StatusParam**](StatusParam.md) |  | [optional] [default to STATUSPARAM_OK]
 **EInvoice** | Pointer to [**StatusParam**](StatusParam.md) |  | [optional] [default to STATUSPARAM_OK]
 
 ## Methods
@@ -154,6 +155,31 @@ SetGeneratorApiAsync sets GeneratorApiAsync field to given value.
 `func (o *GetStatus200Response) HasGeneratorApiAsync() bool`
 
 HasGeneratorApiAsync returns a boolean if a field has been set.
+
+### GetPdfServices
+
+`func (o *GetStatus200Response) GetPdfServices() StatusParam`
+
+GetPdfServices returns the PdfServices field if non-nil, zero value otherwise.
+
+### GetPdfServicesOk
+
+`func (o *GetStatus200Response) GetPdfServicesOk() (*StatusParam, bool)`
+
+GetPdfServicesOk returns a tuple with the PdfServices field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPdfServices
+
+`func (o *GetStatus200Response) SetPdfServices(v StatusParam)`
+
+SetPdfServices sets PdfServices field to given value.
+
+### HasPdfServices
+
+`func (o *GetStatus200Response) HasPdfServices() bool`
+
+HasPdfServices returns a boolean if a field has been set.
 
 ### GetEInvoice
 

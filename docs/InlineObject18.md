@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | Pointer to [**[]DocumentAction**](DocumentAction.md) |  | [optional] 
+**Response** | Pointer to [**TemplateDefinition**](TemplateDefinition.md) |  | [optional] 
+**Meta** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -27,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetResponse
 
-`func (o *InlineObject18) GetResponse() []DocumentAction`
+`func (o *InlineObject18) GetResponse() TemplateDefinition`
 
 GetResponse returns the Response field if non-nil, zero value otherwise.
 
 ### GetResponseOk
 
-`func (o *InlineObject18) GetResponseOk() (*[]DocumentAction, bool)`
+`func (o *InlineObject18) GetResponseOk() (*TemplateDefinition, bool)`
 
 GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponse
 
-`func (o *InlineObject18) SetResponse(v []DocumentAction)`
+`func (o *InlineObject18) SetResponse(v TemplateDefinition)`
 
 SetResponse sets Response field to given value.
 
@@ -49,6 +50,31 @@ SetResponse sets Response field to given value.
 `func (o *InlineObject18) HasResponse() bool`
 
 HasResponse returns a boolean if a field has been set.
+
+### GetMeta
+
+`func (o *InlineObject18) GetMeta() map[string]interface{}`
+
+GetMeta returns the Meta field if non-nil, zero value otherwise.
+
+### GetMetaOk
+
+`func (o *InlineObject18) GetMetaOk() (*map[string]interface{}, bool)`
+
+GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMeta
+
+`func (o *InlineObject18) SetMeta(v map[string]interface{})`
+
+SetMeta sets Meta field to given value.
+
+### HasMeta
+
+`func (o *InlineObject18) HasMeta() bool`
+
+HasMeta returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

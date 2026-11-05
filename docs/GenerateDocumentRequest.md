@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Generated document name (optional) | [optional] [default to ""]
 **Testing** | Pointer to **bool** | When set to true the generation is not counted as merge (monthly usage), but a large PREVIEW stamp is added. | [optional] [default to false]
 **MakeAccessible** | Pointer to **bool** | Enables semantic document tagging. When enabled, a separate Make Accessible action is executed, which consumes additional credits. | [optional] [default to false]
+**Print** | Pointer to **bool** | When set to true, the PDF opens the print dialog when it is opened in a viewer. | [optional] [default to false]
+**EmptyLabels** | Pointer to **int32** | Number of label positions to leave empty at the start of the first sheet. Only applies to label templates. | [optional] [default to 0]
+**Attachments** | Pointer to [**[]AttachmentsParamInner**](AttachmentsParamInner.md) | Files embedded into the generated PDF as attachments. Only PDF and XML files are accepted. | [optional] 
 **Metadata** | Pointer to [**MetadataParam**](MetadataParam.md) |  | [optional] 
 
 ## Methods
@@ -180,6 +183,81 @@ SetMakeAccessible sets MakeAccessible field to given value.
 `func (o *GenerateDocumentRequest) HasMakeAccessible() bool`
 
 HasMakeAccessible returns a boolean if a field has been set.
+
+### GetPrint
+
+`func (o *GenerateDocumentRequest) GetPrint() bool`
+
+GetPrint returns the Print field if non-nil, zero value otherwise.
+
+### GetPrintOk
+
+`func (o *GenerateDocumentRequest) GetPrintOk() (*bool, bool)`
+
+GetPrintOk returns a tuple with the Print field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrint
+
+`func (o *GenerateDocumentRequest) SetPrint(v bool)`
+
+SetPrint sets Print field to given value.
+
+### HasPrint
+
+`func (o *GenerateDocumentRequest) HasPrint() bool`
+
+HasPrint returns a boolean if a field has been set.
+
+### GetEmptyLabels
+
+`func (o *GenerateDocumentRequest) GetEmptyLabels() int32`
+
+GetEmptyLabels returns the EmptyLabels field if non-nil, zero value otherwise.
+
+### GetEmptyLabelsOk
+
+`func (o *GenerateDocumentRequest) GetEmptyLabelsOk() (*int32, bool)`
+
+GetEmptyLabelsOk returns a tuple with the EmptyLabels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmptyLabels
+
+`func (o *GenerateDocumentRequest) SetEmptyLabels(v int32)`
+
+SetEmptyLabels sets EmptyLabels field to given value.
+
+### HasEmptyLabels
+
+`func (o *GenerateDocumentRequest) HasEmptyLabels() bool`
+
+HasEmptyLabels returns a boolean if a field has been set.
+
+### GetAttachments
+
+`func (o *GenerateDocumentRequest) GetAttachments() []AttachmentsParamInner`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *GenerateDocumentRequest) GetAttachmentsOk() (*[]AttachmentsParamInner, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *GenerateDocumentRequest) SetAttachments(v []AttachmentsParamInner)`
+
+SetAttachments sets Attachments field to given value.
+
+### HasAttachments
+
+`func (o *GenerateDocumentRequest) HasAttachments() bool`
+
+HasAttachments returns a boolean if a field has been set.
 
 ### GetMetadata
 
