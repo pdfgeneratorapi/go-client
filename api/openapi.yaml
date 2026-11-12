@@ -255,7 +255,7 @@ info:
     name: MIT
     url: https://opensource.org/licenses/MIT
   title: PDF Generator API
-  version: 4.0.34
+  version: 4.0.35
   x-logo:
     url: https://d2304hinatgg5e.cloudfront.net/images/logo/300X90.png
     backgroundColor: "#00d9b5"
@@ -2059,7 +2059,7 @@ paths:
             --url https://us1.pdfgeneratorapi.com/api/v4/templates \
             --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
             --header 'content-type: application/json' \
-            --data '{"name":"Invoice template","tags":["invoice","orders"],"isDraft":true,"layout":{"format":"A4","width":21,"height":29.7,"unit":"cm","orientation":"portrait","rotation":0,"margins":{"top":0.5,"right":0.5,"bottom":0.5,"left":0.5},"repeatLayout":{"format":"A4","width":21,"height":29.7},"emptyLabels":0},"pages":[{"width":21,"height":29.7,"margins":{"right":0.5,"bottom":0.5},"border":false,"components":[],"layout":{},"conditionalFormats":[],"backgroundImage":"string"}],"dataSettings":{"sortBy":[],"filterBy":[],"transform":[]},"editor":{"heightMultiplier":1},"fontSubsetting":false,"barcodeAsImage":false}'
+            --data '{"name":"Invoice template","tags":["invoice","orders"],"isDraft":true,"layout":{"format":"A4","width":21,"height":29.7,"unit":"cm","orientation":"portrait","rotation":0,"margins":{"top":0.5,"right":0.5,"bottom":0.5,"left":0.5},"repeatLayout":{"format":"A4","width":21,"height":29.7},"emptyLabels":0},"pages":[{"width":21,"height":29.7,"margins":{"right":0.5,"bottom":0.5},"border":false,"components":[],"layout":{},"conditionalFormats":[],"backgroundImage":"string","backgroundColor":"#F1F5F9","backgroundImageFit":"contain"}],"dataSettings":{"sortBy":[],"filterBy":[],"transform":[]},"editor":{"heightMultiplier":1},"fontSubsetting":false,"barcodeAsImage":false}'
       - lang: Node.js
         source: |-
           const http = require("https");
@@ -2112,7 +2112,9 @@ paths:
                 components: [],
                 layout: {},
                 conditionalFormats: [],
-                backgroundImage: 'string'
+                backgroundImage: 'string',
+                backgroundColor: '#F1F5F9',
+                backgroundImageFit: 'contain'
               }
             ],
             dataSettings: {sortBy: [], filterBy: [], transform: []},
@@ -2127,7 +2129,7 @@ paths:
 
           conn = http.client.HTTPSConnection("us1.pdfgeneratorapi.com")
 
-          payload = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
+          payload = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
 
           headers = {
               'Authorization': "Bearer REPLACE_BEARER_TOKEN",
@@ -2145,7 +2147,7 @@ paths:
           OkHttpClient client = new OkHttpClient();
 
           MediaType mediaType = MediaType.parse("application/json");
-          RequestBody body = RequestBody.create(mediaType, "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}");
+          RequestBody body = RequestBody.create(mediaType, "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}");
           Request request = new Request.Builder()
             .url("https://us1.pdfgeneratorapi.com/api/v4/templates")
             .post(body)
@@ -2165,7 +2167,7 @@ paths:
               {
                   { "Authorization", "Bearer REPLACE_BEARER_TOKEN" },
               },
-              Content = new StringContent("{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}")
+              Content = new StringContent("{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}")
               {
                   Headers =
                   {
@@ -2193,7 +2195,7 @@ paths:
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}",
+            CURLOPT_POSTFIELDS => "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}",
             CURLOPT_HTTPHEADER => [
               "Authorization: Bearer REPLACE_BEARER_TOKEN",
               "content-type: application/json"
@@ -2223,14 +2225,15 @@ paths:
           \":[{\\\"width\\\":21,\\\"height\\\":29.7,\\\"margins\\\":{\\\"right\\\"\
           :0.5,\\\"bottom\\\":0.5},\\\"border\\\":false,\\\"components\\\":[],\\\"\
           layout\\\":{},\\\"conditionalFormats\\\":[],\\\"backgroundImage\\\":\\\"\
-          string\\\"}],\\\"dataSettings\\\":{\\\"sortBy\\\":[],\\\"filterBy\\\":[],\\\
-          \"transform\\\":[]},\\\"editor\\\":{\\\"heightMultiplier\\\":1},\\\"fontSubsetting\\\
-          \":false,\\\"barcodeAsImage\\\":false}\")\n\n\treq, _ := http.NewRequest(\"\
-          POST\", url, payload)\n\n\treq.Header.Add(\"Authorization\", \"Bearer REPLACE_BEARER_TOKEN\"\
-          )\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _\
-          \ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ :=\
-          \ ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\
-          \n}"
+          string\\\",\\\"backgroundColor\\\":\\\"#F1F5F9\\\",\\\"backgroundImageFit\\\
+          \":\\\"contain\\\"}],\\\"dataSettings\\\":{\\\"sortBy\\\":[],\\\"filterBy\\\
+          \":[],\\\"transform\\\":[]},\\\"editor\\\":{\\\"heightMultiplier\\\":1},\\\
+          \"fontSubsetting\\\":false,\\\"barcodeAsImage\\\":false}\")\n\n\treq, _\
+          \ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"Authorization\"\
+          , \"Bearer REPLACE_BEARER_TOKEN\")\n\treq.Header.Add(\"content-type\", \"\
+          application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer\
+          \ res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\
+          \tfmt.Println(string(body))\n\n}"
       - lang: Ruby
         source: |-
           require 'uri'
@@ -2246,7 +2249,7 @@ paths:
           request = Net::HTTP::Post.new(url)
           request["Authorization"] = 'Bearer REPLACE_BEARER_TOKEN'
           request["content-type"] = 'application/json'
-          request.body = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
+          request.body = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
 
           response = http.request(request)
           puts response.read_body
@@ -2611,7 +2614,7 @@ paths:
           curl --request POST \
             --url https://us1.pdfgeneratorapi.com/api/v4/templates/validate \
             --header 'content-type: application/json' \
-            --data '{"name":"Invoice template","tags":["invoice","orders"],"isDraft":true,"layout":{"format":"A4","width":21,"height":29.7,"unit":"cm","orientation":"portrait","rotation":0,"margins":{"top":0.5,"right":0.5,"bottom":0.5,"left":0.5},"repeatLayout":{"format":"A4","width":21,"height":29.7},"emptyLabels":0},"pages":[{"width":21,"height":29.7,"margins":{"right":0.5,"bottom":0.5},"border":false,"components":[],"layout":{},"conditionalFormats":[],"backgroundImage":"string"}],"dataSettings":{"sortBy":[],"filterBy":[],"transform":[]},"editor":{"heightMultiplier":1},"fontSubsetting":false,"barcodeAsImage":false}'
+            --data '{"name":"Invoice template","tags":["invoice","orders"],"isDraft":true,"layout":{"format":"A4","width":21,"height":29.7,"unit":"cm","orientation":"portrait","rotation":0,"margins":{"top":0.5,"right":0.5,"bottom":0.5,"left":0.5},"repeatLayout":{"format":"A4","width":21,"height":29.7},"emptyLabels":0},"pages":[{"width":21,"height":29.7,"margins":{"right":0.5,"bottom":0.5},"border":false,"components":[],"layout":{},"conditionalFormats":[],"backgroundImage":"string","backgroundColor":"#F1F5F9","backgroundImageFit":"contain"}],"dataSettings":{"sortBy":[],"filterBy":[],"transform":[]},"editor":{"heightMultiplier":1},"fontSubsetting":false,"barcodeAsImage":false}'
       - lang: Node.js
         source: |-
           const http = require("https");
@@ -2663,7 +2666,9 @@ paths:
                 components: [],
                 layout: {},
                 conditionalFormats: [],
-                backgroundImage: 'string'
+                backgroundImage: 'string',
+                backgroundColor: '#F1F5F9',
+                backgroundImageFit: 'contain'
               }
             ],
             dataSettings: {sortBy: [], filterBy: [], transform: []},
@@ -2678,7 +2683,7 @@ paths:
 
           conn = http.client.HTTPSConnection("us1.pdfgeneratorapi.com")
 
-          payload = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
+          payload = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
 
           headers = { 'content-type': "application/json" }
 
@@ -2693,7 +2698,7 @@ paths:
           OkHttpClient client = new OkHttpClient();
 
           MediaType mediaType = MediaType.parse("application/json");
-          RequestBody body = RequestBody.create(mediaType, "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}");
+          RequestBody body = RequestBody.create(mediaType, "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}");
           Request request = new Request.Builder()
             .url("https://us1.pdfgeneratorapi.com/api/v4/templates/validate")
             .post(body)
@@ -2708,7 +2713,7 @@ paths:
           {
               Method = HttpMethod.Post,
               RequestUri = new Uri("https://us1.pdfgeneratorapi.com/api/v4/templates/validate"),
-              Content = new StringContent("{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}")
+              Content = new StringContent("{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}")
               {
                   Headers =
                   {
@@ -2736,7 +2741,7 @@ paths:
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}",
+            CURLOPT_POSTFIELDS => "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}",
             CURLOPT_HTTPHEADER => [
               "content-type: application/json"
             ],
@@ -2765,13 +2770,14 @@ paths:
           \":[{\\\"width\\\":21,\\\"height\\\":29.7,\\\"margins\\\":{\\\"right\\\"\
           :0.5,\\\"bottom\\\":0.5},\\\"border\\\":false,\\\"components\\\":[],\\\"\
           layout\\\":{},\\\"conditionalFormats\\\":[],\\\"backgroundImage\\\":\\\"\
-          string\\\"}],\\\"dataSettings\\\":{\\\"sortBy\\\":[],\\\"filterBy\\\":[],\\\
-          \"transform\\\":[]},\\\"editor\\\":{\\\"heightMultiplier\\\":1},\\\"fontSubsetting\\\
-          \":false,\\\"barcodeAsImage\\\":false}\")\n\n\treq, _ := http.NewRequest(\"\
-          POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\"\
-          )\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\
-          \tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\
-          \n}"
+          string\\\",\\\"backgroundColor\\\":\\\"#F1F5F9\\\",\\\"backgroundImageFit\\\
+          \":\\\"contain\\\"}],\\\"dataSettings\\\":{\\\"sortBy\\\":[],\\\"filterBy\\\
+          \":[],\\\"transform\\\":[]},\\\"editor\\\":{\\\"heightMultiplier\\\":1},\\\
+          \"fontSubsetting\\\":false,\\\"barcodeAsImage\\\":false}\")\n\n\treq, _\
+          \ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\"\
+          , \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\t\
+          defer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\
+          \tfmt.Println(string(body))\n\n}"
       - lang: Ruby
         source: |-
           require 'uri'
@@ -2786,7 +2792,7 @@ paths:
 
           request = Net::HTTP::Post.new(url)
           request["content-type"] = 'application/json'
-          request.body = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
+          request.body = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
 
           response = http.request(request)
           puts response.read_body
@@ -3167,7 +3173,7 @@ paths:
             --url https://us1.pdfgeneratorapi.com/api/v4/templates/19375 \
             --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
             --header 'content-type: application/json' \
-            --data '{"name":"Invoice template","tags":["invoice","orders"],"isDraft":true,"layout":{"format":"A4","width":21,"height":29.7,"unit":"cm","orientation":"portrait","rotation":0,"margins":{"top":0.5,"right":0.5,"bottom":0.5,"left":0.5},"repeatLayout":{"format":"A4","width":21,"height":29.7},"emptyLabels":0},"pages":[{"width":21,"height":29.7,"margins":{"right":0.5,"bottom":0.5},"border":false,"components":[],"layout":{},"conditionalFormats":[],"backgroundImage":"string"}],"dataSettings":{"sortBy":[],"filterBy":[],"transform":[]},"editor":{"heightMultiplier":1},"fontSubsetting":false,"barcodeAsImage":false}'
+            --data '{"name":"Invoice template","tags":["invoice","orders"],"isDraft":true,"layout":{"format":"A4","width":21,"height":29.7,"unit":"cm","orientation":"portrait","rotation":0,"margins":{"top":0.5,"right":0.5,"bottom":0.5,"left":0.5},"repeatLayout":{"format":"A4","width":21,"height":29.7},"emptyLabels":0},"pages":[{"width":21,"height":29.7,"margins":{"right":0.5,"bottom":0.5},"border":false,"components":[],"layout":{},"conditionalFormats":[],"backgroundImage":"string","backgroundColor":"#F1F5F9","backgroundImageFit":"contain"}],"dataSettings":{"sortBy":[],"filterBy":[],"transform":[]},"editor":{"heightMultiplier":1},"fontSubsetting":false,"barcodeAsImage":false}'
       - lang: Node.js
         source: |-
           const http = require("https");
@@ -3220,7 +3226,9 @@ paths:
                 components: [],
                 layout: {},
                 conditionalFormats: [],
-                backgroundImage: 'string'
+                backgroundImage: 'string',
+                backgroundColor: '#F1F5F9',
+                backgroundImageFit: 'contain'
               }
             ],
             dataSettings: {sortBy: [], filterBy: [], transform: []},
@@ -3235,7 +3243,7 @@ paths:
 
           conn = http.client.HTTPSConnection("us1.pdfgeneratorapi.com")
 
-          payload = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
+          payload = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
 
           headers = {
               'Authorization': "Bearer REPLACE_BEARER_TOKEN",
@@ -3253,7 +3261,7 @@ paths:
           OkHttpClient client = new OkHttpClient();
 
           MediaType mediaType = MediaType.parse("application/json");
-          RequestBody body = RequestBody.create(mediaType, "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}");
+          RequestBody body = RequestBody.create(mediaType, "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}");
           Request request = new Request.Builder()
             .url("https://us1.pdfgeneratorapi.com/api/v4/templates/19375")
             .put(body)
@@ -3273,7 +3281,7 @@ paths:
               {
                   { "Authorization", "Bearer REPLACE_BEARER_TOKEN" },
               },
-              Content = new StringContent("{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}")
+              Content = new StringContent("{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}")
               {
                   Headers =
                   {
@@ -3301,7 +3309,7 @@ paths:
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "PUT",
-            CURLOPT_POSTFIELDS => "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}",
+            CURLOPT_POSTFIELDS => "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}",
             CURLOPT_HTTPHEADER => [
               "Authorization: Bearer REPLACE_BEARER_TOKEN",
               "content-type: application/json"
@@ -3331,14 +3339,15 @@ paths:
           \":[{\\\"width\\\":21,\\\"height\\\":29.7,\\\"margins\\\":{\\\"right\\\"\
           :0.5,\\\"bottom\\\":0.5},\\\"border\\\":false,\\\"components\\\":[],\\\"\
           layout\\\":{},\\\"conditionalFormats\\\":[],\\\"backgroundImage\\\":\\\"\
-          string\\\"}],\\\"dataSettings\\\":{\\\"sortBy\\\":[],\\\"filterBy\\\":[],\\\
-          \"transform\\\":[]},\\\"editor\\\":{\\\"heightMultiplier\\\":1},\\\"fontSubsetting\\\
-          \":false,\\\"barcodeAsImage\\\":false}\")\n\n\treq, _ := http.NewRequest(\"\
-          PUT\", url, payload)\n\n\treq.Header.Add(\"Authorization\", \"Bearer REPLACE_BEARER_TOKEN\"\
-          )\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _\
-          \ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ :=\
-          \ ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\
-          \n}"
+          string\\\",\\\"backgroundColor\\\":\\\"#F1F5F9\\\",\\\"backgroundImageFit\\\
+          \":\\\"contain\\\"}],\\\"dataSettings\\\":{\\\"sortBy\\\":[],\\\"filterBy\\\
+          \":[],\\\"transform\\\":[]},\\\"editor\\\":{\\\"heightMultiplier\\\":1},\\\
+          \"fontSubsetting\\\":false,\\\"barcodeAsImage\\\":false}\")\n\n\treq, _\
+          \ := http.NewRequest(\"PUT\", url, payload)\n\n\treq.Header.Add(\"Authorization\"\
+          , \"Bearer REPLACE_BEARER_TOKEN\")\n\treq.Header.Add(\"content-type\", \"\
+          application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer\
+          \ res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\
+          \tfmt.Println(string(body))\n\n}"
       - lang: Ruby
         source: |-
           require 'uri'
@@ -3354,7 +3363,7 @@ paths:
           request = Net::HTTP::Put.new(url)
           request["Authorization"] = 'Bearer REPLACE_BEARER_TOKEN'
           request["content-type"] = 'application/json'
-          request.body = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
+          request.body = "{\"name\":\"Invoice template\",\"tags\":[\"invoice\",\"orders\"],\"isDraft\":true,\"layout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7,\"unit\":\"cm\",\"orientation\":\"portrait\",\"rotation\":0,\"margins\":{\"top\":0.5,\"right\":0.5,\"bottom\":0.5,\"left\":0.5},\"repeatLayout\":{\"format\":\"A4\",\"width\":21,\"height\":29.7},\"emptyLabels\":0},\"pages\":[{\"width\":21,\"height\":29.7,\"margins\":{\"right\":0.5,\"bottom\":0.5},\"border\":false,\"components\":[],\"layout\":{},\"conditionalFormats\":[],\"backgroundImage\":\"string\",\"backgroundColor\":\"#F1F5F9\",\"backgroundImageFit\":\"contain\"}],\"dataSettings\":{\"sortBy\":[],\"filterBy\":[],\"transform\":[]},\"editor\":{\"heightMultiplier\":1},\"fontSubsetting\":false,\"barcodeAsImage\":false}"
 
           response = http.request(request)
           puts response.read_body
@@ -12705,8 +12714,10 @@ components:
             right: 0.5
           components: []
           conditionalFormats: []
+          backgroundColor: "#F1F5F9"
           backgroundImage: backgroundImage
           width: 21
+          backgroundImageFit: contain
           height: 29.7
         - border: false
           layout: "{}"
@@ -12715,8 +12726,10 @@ components:
             right: 0.5
           components: []
           conditionalFormats: []
+          backgroundColor: "#F1F5F9"
           backgroundImage: backgroundImage
           width: 21
+          backgroundImageFit: contain
           height: 29.7
         dataSettings:
           transform: []
@@ -12807,8 +12820,10 @@ components:
             right: 0.5
           components: []
           conditionalFormats: []
+          backgroundColor: "#F1F5F9"
           backgroundImage: backgroundImage
           width: 21
+          backgroundImageFit: contain
           height: 29.7
         - border: false
           layout: "{}"
@@ -12817,8 +12832,10 @@ components:
             right: 0.5
           components: []
           conditionalFormats: []
+          backgroundColor: "#F1F5F9"
           backgroundImage: backgroundImage
           width: 21
+          backgroundImageFit: contain
           height: 29.7
         dataSettings:
           transform: []
@@ -12906,8 +12923,10 @@ components:
             right: 0.5
           components: []
           conditionalFormats: []
+          backgroundColor: "#F1F5F9"
           backgroundImage: backgroundImage
           width: 21
+          backgroundImageFit: contain
           height: 29.7
         - border: false
           layout: "{}"
@@ -12916,8 +12935,10 @@ components:
             right: 0.5
           components: []
           conditionalFormats: []
+          backgroundColor: "#F1F5F9"
           backgroundImage: backgroundImage
           width: 21
+          backgroundImageFit: contain
           height: 29.7
         dataSettings:
           transform: []
@@ -14145,6 +14166,7 @@ components:
           - ru
           - de
           - ja
+          - pt
           type: string
       type: object
     promoteTemplateVersion_200_response:
@@ -15067,8 +15089,10 @@ components:
           right: 0.5
         components: []
         conditionalFormats: []
+        backgroundColor: "#F1F5F9"
         backgroundImage: backgroundImage
         width: 21
+        backgroundImageFit: contain
         height: 29.7
       properties:
         width:
@@ -15101,7 +15125,38 @@ components:
             type: object
           type: array
         backgroundImage:
-          description: Defines background image for the page.
+          description: "The page's background image: an image URL, a data URI or a\
+            \ {data field} placeholder, PNG, JPEG, GIF or SVG. It is drawn over the\
+            \ background color and under everything else on the page, as backgroundImageFit\
+            \ says. A template with a background PDF does not draw it. Empty or null\
+            \ for none."
+          nullable: true
+          type: string
+        backgroundColor:
+          description: "The page's background color in hex color code, #RRGGBB or\
+            \ #RGB, or with an alpha, #RRGGBBAA, #RGBA or rgba(r, g, b, a); a translucent\
+            \ one is lighter, the white of the paper showing through. It fills every\
+            \ sheet the page runs onto, edge to edge, under everything on it, the\
+            \ background image included; on a sheet of labels it fills each label.\
+            \ A template with a background PDF is not filled. Empty or null for none."
+          example: "#F1F5F9"
+          nullable: true
+          pattern: "^(#([0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})|[rR][gG][bB][aA]?\\\
+            (\\s*(\\d+(\\.\\d+)?|\\.\\d+)%?\\s*,\\s*(\\d+(\\.\\d+)?|\\.\\d+)%?\\s*,\\\
+            s*(\\d+(\\.\\d+)?|\\.\\d+)%?\\s*(,\\s*(\\d+(\\.\\d+)?|\\.\\d+)%?\\s*)?\\\
+            ))?$"
+          type: string
+        backgroundImageFit:
+          description: "How the background image covers the page, centred: `stretch`,\
+            \ stretched to the page, as when none is set; `contain`, fitted inside\
+            \ the page, keeping its proportions; `cover`, filling the page, keeping\
+            \ its proportions, with what overflows cut off. Null for stretch."
+          enum:
+          - stretch
+          - contain
+          - cover
+          - null
+          example: contain
           nullable: true
           type: string
       type: object
@@ -15951,8 +16006,10 @@ components:
               right: 0.5
             components: []
             conditionalFormats: []
+            backgroundColor: "#F1F5F9"
             backgroundImage: backgroundImage
             width: 21
+            backgroundImageFit: contain
             height: 29.7
           - border: false
             layout: "{}"
@@ -15961,8 +16018,10 @@ components:
               right: 0.5
             components: []
             conditionalFormats: []
+            backgroundColor: "#F1F5F9"
             backgroundImage: backgroundImage
             width: 21
+            backgroundImageFit: contain
             height: 29.7
           dataSettings:
             transform: []
