@@ -36,6 +36,7 @@ type GenerateDocumentBatchRequest struct {
 	// Files embedded into the generated PDF as attachments. Only PDF and XML files are accepted.
 	Attachments []AttachmentsParamInner `json:"attachments,omitempty"`
 	Metadata *MetadataParam `json:"metadata,omitempty"`
+	DisplayMode *DisplayModeParam `json:"display_mode,omitempty"`
 }
 
 type _GenerateDocumentBatchRequest GenerateDocumentBatchRequest
@@ -362,6 +363,38 @@ func (o *GenerateDocumentBatchRequest) SetMetadata(v MetadataParam) {
 	o.Metadata = &v
 }
 
+// GetDisplayMode returns the DisplayMode field value if set, zero value otherwise.
+func (o *GenerateDocumentBatchRequest) GetDisplayMode() DisplayModeParam {
+	if o == nil || IsNil(o.DisplayMode) {
+		var ret DisplayModeParam
+		return ret
+	}
+	return *o.DisplayMode
+}
+
+// GetDisplayModeOk returns a tuple with the DisplayMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GenerateDocumentBatchRequest) GetDisplayModeOk() (*DisplayModeParam, bool) {
+	if o == nil || IsNil(o.DisplayMode) {
+		return nil, false
+	}
+	return o.DisplayMode, true
+}
+
+// HasDisplayMode returns a boolean if a field has been set.
+func (o *GenerateDocumentBatchRequest) HasDisplayMode() bool {
+	if o != nil && !IsNil(o.DisplayMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisplayMode gets a reference to the given DisplayModeParam and assigns it to the DisplayMode field.
+func (o *GenerateDocumentBatchRequest) SetDisplayMode(v DisplayModeParam) {
+	o.DisplayMode = &v
+}
+
 func (o GenerateDocumentBatchRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -396,6 +429,9 @@ func (o GenerateDocumentBatchRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
+	}
+	if !IsNil(o.DisplayMode) {
+		toSerialize["display_mode"] = o.DisplayMode
 	}
 	return toSerialize, nil
 }

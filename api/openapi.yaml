@@ -6631,7 +6631,7 @@ paths:
             --url https://us1.pdfgeneratorapi.com/api/v4/documents/generate \
             --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
             --header 'content-type: application/json' \
-            --data '{"template":{"id":"REPLACE_TEMPLATE_ID","version_id":12,"data":{"id":123,"name":"John Smith","birthdate":"2000-01-01","role":"Developer"}},"format":"pdf","output":"base64","name":"Invoice 123","testing":false,"make_accessible":false,"print":false,"empty_labels":0,"attachments":[{"name":"invoice.xml","content":"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=="}],"metadata":{"author":"Organization name","language":"en"}}'
+            --data '{"template":{"id":"REPLACE_TEMPLATE_ID","version_id":12,"data":{"id":123,"name":"John Smith","birthdate":"2000-01-01","role":"Developer"}},"format":"pdf","output":"base64","name":"Invoice 123","testing":false,"make_accessible":false,"print":false,"empty_labels":0,"attachments":[{"name":"invoice.xml","content":"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=="}],"metadata":{"author":"Organization name","language":"en"},"display_mode":{"zoom":"fullwidth","layout":"SinglePage","mode":"UseNone"}}'
       - lang: Node.js
         source: |-
           const http = require("https");
@@ -6674,7 +6674,8 @@ paths:
             print: false,
             empty_labels: 0,
             attachments: [{name: 'invoice.xml', content: 'PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=='}],
-            metadata: {author: 'Organization name', language: 'en'}
+            metadata: {author: 'Organization name', language: 'en'},
+            display_mode: {zoom: 'fullwidth', layout: 'SinglePage', mode: 'UseNone'}
           }));
           req.end();
       - lang: Python
@@ -6683,7 +6684,7 @@ paths:
 
           conn = http.client.HTTPSConnection("us1.pdfgeneratorapi.com")
 
-          payload = "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}"
+          payload = "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}"
 
           headers = {
               'Authorization': "Bearer REPLACE_BEARER_TOKEN",
@@ -6701,7 +6702,7 @@ paths:
           OkHttpClient client = new OkHttpClient();
 
           MediaType mediaType = MediaType.parse("application/json");
-          RequestBody body = RequestBody.create(mediaType, "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}");
+          RequestBody body = RequestBody.create(mediaType, "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}");
           Request request = new Request.Builder()
             .url("https://us1.pdfgeneratorapi.com/api/v4/documents/generate")
             .post(body)
@@ -6721,7 +6722,7 @@ paths:
               {
                   { "Authorization", "Bearer REPLACE_BEARER_TOKEN" },
               },
-              Content = new StringContent("{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}")
+              Content = new StringContent("{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}")
               {
                   Headers =
                   {
@@ -6749,7 +6750,7 @@ paths:
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}",
+            CURLOPT_POSTFIELDS => "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}",
             CURLOPT_HTTPHEADER => [
               "Authorization: Bearer REPLACE_BEARER_TOKEN",
               "content-type: application/json"
@@ -6777,12 +6778,14 @@ paths:
           make_accessible\\\":false,\\\"print\\\":false,\\\"empty_labels\\\":0,\\\"\
           attachments\\\":[{\\\"name\\\":\\\"invoice.xml\\\",\\\"content\\\":\\\"\
           PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\\\"}],\\\"metadata\\\":{\\\"\
-          author\\\":\\\"Organization name\\\",\\\"language\\\":\\\"en\\\"}}\")\n\n\
-          \treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"\
-          Authorization\", \"Bearer REPLACE_BEARER_TOKEN\")\n\treq.Header.Add(\"content-type\"\
-          , \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\t\
-          defer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\
-          \tfmt.Println(string(body))\n\n}"
+          author\\\":\\\"Organization name\\\",\\\"language\\\":\\\"en\\\"},\\\"display_mode\\\
+          \":{\\\"zoom\\\":\\\"fullwidth\\\",\\\"layout\\\":\\\"SinglePage\\\",\\\"\
+          mode\\\":\\\"UseNone\\\"}}\")\n\n\treq, _ := http.NewRequest(\"POST\", url,\
+          \ payload)\n\n\treq.Header.Add(\"Authorization\", \"Bearer REPLACE_BEARER_TOKEN\"\
+          )\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _\
+          \ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ :=\
+          \ ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\
+          \n}"
       - lang: Ruby
         source: |-
           require 'uri'
@@ -6798,7 +6801,7 @@ paths:
           request = Net::HTTP::Post.new(url)
           request["Authorization"] = 'Bearer REPLACE_BEARER_TOKEN'
           request["content-type"] = 'application/json'
-          request.body = "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}"
+          request.body = "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}"
 
           response = http.request(request)
           puts response.read_body
@@ -6855,7 +6858,7 @@ paths:
             --url https://us1.pdfgeneratorapi.com/api/v4/documents/generate/async \
             --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
             --header 'content-type: application/json' \
-            --data '{"template":{"id":"REPLACE_TEMPLATE_ID","version_id":12,"data":{"id":123,"name":"John Smith","birthdate":"2000-01-01","role":"Developer"}},"callback":{"url":"https://example.org/document-callback","headers":{"Content-type":"application/json","Custom-header":"ABCDE12345678"}},"format":"pdf","output":"base64","name":"Invoice 123","testing":false,"make_accessible":false,"print":false,"empty_labels":0,"attachments":[{"name":"invoice.xml","content":"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=="}],"metadata":{"author":"Organization name","language":"en"}}'
+            --data '{"template":{"id":"REPLACE_TEMPLATE_ID","version_id":12,"data":{"id":123,"name":"John Smith","birthdate":"2000-01-01","role":"Developer"}},"callback":{"url":"https://example.org/document-callback","headers":{"Content-type":"application/json","Custom-header":"ABCDE12345678"}},"format":"pdf","output":"base64","name":"Invoice 123","testing":false,"make_accessible":false,"print":false,"empty_labels":0,"attachments":[{"name":"invoice.xml","content":"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=="}],"metadata":{"author":"Organization name","language":"en"},"display_mode":{"zoom":"fullwidth","layout":"SinglePage","mode":"UseNone"}}'
       - lang: Node.js
         source: |-
           const http = require("https");
@@ -6902,7 +6905,8 @@ paths:
             print: false,
             empty_labels: 0,
             attachments: [{name: 'invoice.xml', content: 'PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=='}],
-            metadata: {author: 'Organization name', language: 'en'}
+            metadata: {author: 'Organization name', language: 'en'},
+            display_mode: {zoom: 'fullwidth', layout: 'SinglePage', mode: 'UseNone'}
           }));
           req.end();
       - lang: Python
@@ -6911,7 +6915,7 @@ paths:
 
           conn = http.client.HTTPSConnection("us1.pdfgeneratorapi.com")
 
-          payload = "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}"
+          payload = "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}"
 
           headers = {
               'Authorization': "Bearer REPLACE_BEARER_TOKEN",
@@ -6929,7 +6933,7 @@ paths:
           OkHttpClient client = new OkHttpClient();
 
           MediaType mediaType = MediaType.parse("application/json");
-          RequestBody body = RequestBody.create(mediaType, "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}");
+          RequestBody body = RequestBody.create(mediaType, "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}");
           Request request = new Request.Builder()
             .url("https://us1.pdfgeneratorapi.com/api/v4/documents/generate/async")
             .post(body)
@@ -6949,7 +6953,7 @@ paths:
               {
                   { "Authorization", "Bearer REPLACE_BEARER_TOKEN" },
               },
-              Content = new StringContent("{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}")
+              Content = new StringContent("{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}")
               {
                   Headers =
                   {
@@ -6977,7 +6981,7 @@ paths:
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}",
+            CURLOPT_POSTFIELDS => "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}",
             CURLOPT_HTTPHEADER => [
               "Authorization: Bearer REPLACE_BEARER_TOKEN",
               "content-type: application/json"
@@ -7007,11 +7011,13 @@ paths:
           \":false,\\\"print\\\":false,\\\"empty_labels\\\":0,\\\"attachments\\\"\
           :[{\\\"name\\\":\\\"invoice.xml\\\",\\\"content\\\":\\\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\\\
           \"}],\\\"metadata\\\":{\\\"author\\\":\\\"Organization name\\\",\\\"language\\\
-          \":\\\"en\\\"}}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\
-          \n\treq.Header.Add(\"Authorization\", \"Bearer REPLACE_BEARER_TOKEN\")\n\
-          \treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ :=\
-          \ http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\
-          \n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          \":\\\"en\\\"},\\\"display_mode\\\":{\\\"zoom\\\":\\\"fullwidth\\\",\\\"\
+          layout\\\":\\\"SinglePage\\\",\\\"mode\\\":\\\"UseNone\\\"}}\")\n\n\treq,\
+          \ _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"Authorization\"\
+          , \"Bearer REPLACE_BEARER_TOKEN\")\n\treq.Header.Add(\"content-type\", \"\
+          application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer\
+          \ res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\
+          \tfmt.Println(string(body))\n\n}"
       - lang: Ruby
         source: |-
           require 'uri'
@@ -7027,7 +7033,7 @@ paths:
           request = Net::HTTP::Post.new(url)
           request["Authorization"] = 'Bearer REPLACE_BEARER_TOKEN'
           request["content-type"] = 'application/json'
-          request.body = "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}"
+          request.body = "{\"template\":{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}},\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"make_accessible\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}"
 
           response = http.request(request)
           puts response.read_body
@@ -7071,7 +7077,7 @@ paths:
             --url https://us1.pdfgeneratorapi.com/api/v4/documents/generate/batch \
             --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
             --header 'content-type: application/json' \
-            --data '{"template":[{"id":"REPLACE_TEMPLATE_ID","version_id":12,"data":{"id":123,"name":"John Smith","birthdate":"2000-01-01","role":"Developer"}}],"format":"pdf","output":"base64","name":"Invoice 123","testing":false,"print":false,"empty_labels":0,"attachments":[{"name":"invoice.xml","content":"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=="}],"metadata":{"author":"Organization name","language":"en"}}'
+            --data '{"template":[{"id":"REPLACE_TEMPLATE_ID","version_id":12,"data":{"id":123,"name":"John Smith","birthdate":"2000-01-01","role":"Developer"}}],"format":"pdf","output":"base64","name":"Invoice 123","testing":false,"print":false,"empty_labels":0,"attachments":[{"name":"invoice.xml","content":"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=="}],"metadata":{"author":"Organization name","language":"en"},"display_mode":{"zoom":"fullwidth","layout":"SinglePage","mode":"UseNone"}}'
       - lang: Node.js
         source: |-
           const http = require("https");
@@ -7115,7 +7121,8 @@ paths:
             print: false,
             empty_labels: 0,
             attachments: [{name: 'invoice.xml', content: 'PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=='}],
-            metadata: {author: 'Organization name', language: 'en'}
+            metadata: {author: 'Organization name', language: 'en'},
+            display_mode: {zoom: 'fullwidth', layout: 'SinglePage', mode: 'UseNone'}
           }));
           req.end();
       - lang: Python
@@ -7124,7 +7131,7 @@ paths:
 
           conn = http.client.HTTPSConnection("us1.pdfgeneratorapi.com")
 
-          payload = "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}"
+          payload = "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}"
 
           headers = {
               'Authorization': "Bearer REPLACE_BEARER_TOKEN",
@@ -7142,7 +7149,7 @@ paths:
           OkHttpClient client = new OkHttpClient();
 
           MediaType mediaType = MediaType.parse("application/json");
-          RequestBody body = RequestBody.create(mediaType, "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}");
+          RequestBody body = RequestBody.create(mediaType, "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}");
           Request request = new Request.Builder()
             .url("https://us1.pdfgeneratorapi.com/api/v4/documents/generate/batch")
             .post(body)
@@ -7162,7 +7169,7 @@ paths:
               {
                   { "Authorization", "Bearer REPLACE_BEARER_TOKEN" },
               },
-              Content = new StringContent("{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}")
+              Content = new StringContent("{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}")
               {
                   Headers =
                   {
@@ -7190,7 +7197,7 @@ paths:
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}",
+            CURLOPT_POSTFIELDS => "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}",
             CURLOPT_HTTPHEADER => [
               "Authorization: Bearer REPLACE_BEARER_TOKEN",
               "content-type: application/json"
@@ -7218,11 +7225,13 @@ paths:
           \"print\\\":false,\\\"empty_labels\\\":0,\\\"attachments\\\":[{\\\"name\\\
           \":\\\"invoice.xml\\\",\\\"content\\\":\\\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\\\
           \"}],\\\"metadata\\\":{\\\"author\\\":\\\"Organization name\\\",\\\"language\\\
-          \":\\\"en\\\"}}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\
-          \n\treq.Header.Add(\"Authorization\", \"Bearer REPLACE_BEARER_TOKEN\")\n\
-          \treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ :=\
-          \ http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\
-          \n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          \":\\\"en\\\"},\\\"display_mode\\\":{\\\"zoom\\\":\\\"fullwidth\\\",\\\"\
+          layout\\\":\\\"SinglePage\\\",\\\"mode\\\":\\\"UseNone\\\"}}\")\n\n\treq,\
+          \ _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"Authorization\"\
+          , \"Bearer REPLACE_BEARER_TOKEN\")\n\treq.Header.Add(\"content-type\", \"\
+          application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer\
+          \ res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\
+          \tfmt.Println(string(body))\n\n}"
       - lang: Ruby
         source: |-
           require 'uri'
@@ -7238,7 +7247,7 @@ paths:
           request = Net::HTTP::Post.new(url)
           request["Authorization"] = 'Bearer REPLACE_BEARER_TOKEN'
           request["content-type"] = 'application/json'
-          request.body = "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}"
+          request.body = "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}"
 
           response = http.request(request)
           puts response.read_body
@@ -7295,7 +7304,7 @@ paths:
             --url https://us1.pdfgeneratorapi.com/api/v4/documents/generate/batch/async \
             --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
             --header 'content-type: application/json' \
-            --data '{"template":[{"id":"REPLACE_TEMPLATE_ID","version_id":12,"data":{"id":123,"name":"John Smith","birthdate":"2000-01-01","role":"Developer"}}],"callback":{"url":"https://example.org/document-callback","headers":{"Content-type":"application/json","Custom-header":"ABCDE12345678"}},"format":"pdf","output":"base64","name":"Invoice 123","testing":false,"print":false,"empty_labels":0,"attachments":[{"name":"invoice.xml","content":"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=="}],"metadata":{"author":"Organization name","language":"en"}}'
+            --data '{"template":[{"id":"REPLACE_TEMPLATE_ID","version_id":12,"data":{"id":123,"name":"John Smith","birthdate":"2000-01-01","role":"Developer"}}],"callback":{"url":"https://example.org/document-callback","headers":{"Content-type":"application/json","Custom-header":"ABCDE12345678"}},"format":"pdf","output":"base64","name":"Invoice 123","testing":false,"print":false,"empty_labels":0,"attachments":[{"name":"invoice.xml","content":"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=="}],"metadata":{"author":"Organization name","language":"en"},"display_mode":{"zoom":"fullwidth","layout":"SinglePage","mode":"UseNone"}}'
       - lang: Node.js
         source: |-
           const http = require("https");
@@ -7343,7 +7352,8 @@ paths:
             print: false,
             empty_labels: 0,
             attachments: [{name: 'invoice.xml', content: 'PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg=='}],
-            metadata: {author: 'Organization name', language: 'en'}
+            metadata: {author: 'Organization name', language: 'en'},
+            display_mode: {zoom: 'fullwidth', layout: 'SinglePage', mode: 'UseNone'}
           }));
           req.end();
       - lang: Python
@@ -7352,7 +7362,7 @@ paths:
 
           conn = http.client.HTTPSConnection("us1.pdfgeneratorapi.com")
 
-          payload = "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}"
+          payload = "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}"
 
           headers = {
               'Authorization': "Bearer REPLACE_BEARER_TOKEN",
@@ -7370,7 +7380,7 @@ paths:
           OkHttpClient client = new OkHttpClient();
 
           MediaType mediaType = MediaType.parse("application/json");
-          RequestBody body = RequestBody.create(mediaType, "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}");
+          RequestBody body = RequestBody.create(mediaType, "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}");
           Request request = new Request.Builder()
             .url("https://us1.pdfgeneratorapi.com/api/v4/documents/generate/batch/async")
             .post(body)
@@ -7390,7 +7400,7 @@ paths:
               {
                   { "Authorization", "Bearer REPLACE_BEARER_TOKEN" },
               },
-              Content = new StringContent("{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}")
+              Content = new StringContent("{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}")
               {
                   Headers =
                   {
@@ -7418,7 +7428,7 @@ paths:
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}",
+            CURLOPT_POSTFIELDS => "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}",
             CURLOPT_HTTPHEADER => [
               "Authorization: Bearer REPLACE_BEARER_TOKEN",
               "content-type: application/json"
@@ -7448,11 +7458,13 @@ paths:
           \":false,\\\"empty_labels\\\":0,\\\"attachments\\\":[{\\\"name\\\":\\\"\
           invoice.xml\\\",\\\"content\\\":\\\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\\\
           \"}],\\\"metadata\\\":{\\\"author\\\":\\\"Organization name\\\",\\\"language\\\
-          \":\\\"en\\\"}}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\
-          \n\treq.Header.Add(\"Authorization\", \"Bearer REPLACE_BEARER_TOKEN\")\n\
-          \treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ :=\
-          \ http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\
-          \n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          \":\\\"en\\\"},\\\"display_mode\\\":{\\\"zoom\\\":\\\"fullwidth\\\",\\\"\
+          layout\\\":\\\"SinglePage\\\",\\\"mode\\\":\\\"UseNone\\\"}}\")\n\n\treq,\
+          \ _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"Authorization\"\
+          , \"Bearer REPLACE_BEARER_TOKEN\")\n\treq.Header.Add(\"content-type\", \"\
+          application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer\
+          \ res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\
+          \tfmt.Println(string(body))\n\n}"
       - lang: Ruby
         source: |-
           require 'uri'
@@ -7468,7 +7480,7 @@ paths:
           request = Net::HTTP::Post.new(url)
           request["Authorization"] = 'Bearer REPLACE_BEARER_TOKEN'
           request["content-type"] = 'application/json'
-          request.body = "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"}}"
+          request.body = "{\"template\":[{\"id\":\"REPLACE_TEMPLATE_ID\",\"version_id\":12,\"data\":{\"id\":123,\"name\":\"John Smith\",\"birthdate\":\"2000-01-01\",\"role\":\"Developer\"}}],\"callback\":{\"url\":\"https://example.org/document-callback\",\"headers\":{\"Content-type\":\"application/json\",\"Custom-header\":\"ABCDE12345678\"}},\"format\":\"pdf\",\"output\":\"base64\",\"name\":\"Invoice 123\",\"testing\":false,\"print\":false,\"empty_labels\":0,\"attachments\":[{\"name\":\"invoice.xml\",\"content\":\"PD94bWwgdmVyc2lvbj0iMS4wIj8+PGludm9pY2UvPg==\"}],\"metadata\":{\"author\":\"Organization name\",\"language\":\"en\"},\"display_mode\":{\"zoom\":\"fullwidth\",\"layout\":\"SinglePage\",\"mode\":\"UseNone\"}}"
 
           response = http.request(request)
           puts response.read_body
@@ -13846,6 +13858,57 @@ components:
           description: "Document language as a BCP 47 language tag, e.g. `en` or `de-AT`"
           type: string
       type: object
+    displayModeParam:
+      additionalProperties: false
+      description: How a PDF viewer opens the document (optional). Applies to PDF
+        output. Any value left out keeps its default.
+      properties:
+        zoom:
+          default: fullwidth
+          description: |
+            Initial zoom
+            * `fullpage` - Fits the whole page in the window
+            * `fullwidth` - Fits the page width to the window
+            * `real` - Actual size (100%)
+            * `default` - Leaves the zoom to the viewer. The PDF gets no open action, which some e-invoice validators require
+          enum:
+          - fullpage
+          - fullwidth
+          - real
+          - default
+          example: fullwidth
+          type: string
+        layout:
+          default: SinglePage
+          description: |
+            Page layout
+            * `SinglePage` - One page at a time
+            * `OneColumn` - Pages in one continuous column
+            * `TwoColumnLeft` - Pages in two columns, odd-numbered pages on the left
+            * `TwoColumnRight` - Pages in two columns, odd-numbered pages on the right
+          enum:
+          - SinglePage
+          - OneColumn
+          - TwoColumnLeft
+          - TwoColumnRight
+          example: SinglePage
+          type: string
+        mode:
+          default: UseNone
+          description: |
+            Panel shown when the document opens
+            * `UseNone` - No panel
+            * `UseOutlines` - Document outline (bookmarks)
+            * `UseThumbs` - Page thumbnails
+            * `FullScreen` - Full-screen mode, without menu bar or window controls
+          enum:
+          - UseNone
+          - UseOutlines
+          - UseThumbs
+          - FullScreen
+          example: UseNone
+          type: string
+      type: object
     callbackParam:
       description: Callback URL and optional headers
       properties:
@@ -14361,6 +14424,8 @@ components:
           type: array
         metadata:
           $ref: "#/components/schemas/metadataParam"
+        display_mode:
+          $ref: "#/components/schemas/displayModeParam"
       type: object
     generateDocumentAsynchronous_request:
       properties:
@@ -14411,6 +14476,8 @@ components:
           type: array
         metadata:
           $ref: "#/components/schemas/metadataParam"
+        display_mode:
+          $ref: "#/components/schemas/displayModeParam"
       required:
       - callback
       type: object
@@ -14457,6 +14524,8 @@ components:
           type: array
         metadata:
           $ref: "#/components/schemas/metadataParam"
+        display_mode:
+          $ref: "#/components/schemas/displayModeParam"
       required:
       - template
       type: object
@@ -14505,6 +14574,8 @@ components:
           type: array
         metadata:
           $ref: "#/components/schemas/metadataParam"
+        display_mode:
+          $ref: "#/components/schemas/displayModeParam"
       required:
       - callback
       - template

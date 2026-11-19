@@ -34,6 +34,7 @@ docs/CreateFacturXEInvoiceRequestTemplate.md
 docs/CreateFacturXEInvoiceRequestTemplateId.md
 docs/CreateWorkspaceRequest.md
 docs/CreateXRechnungEInvoiceRequest.md
+docs/DisplayModeParam.md
 docs/Document.md
 docs/DocumentAction.md
 docs/DocumentSignature.md
@@ -198,6 +199,7 @@ model_create_factur_xe_invoice_request_template.go
 model_create_factur_xe_invoice_request_template_id.go
 model_create_workspace_request.go
 model_create_x_rechnung_e_invoice_request.go
+model_display_mode_param.go
 model_document.go
 model_document_action.go
 model_document_signature.go

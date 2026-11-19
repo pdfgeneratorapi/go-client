@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **EmptyLabels** | Pointer to **int32** | Number of label positions to leave empty at the start of the first sheet. Only applies to label templates. | [optional] [default to 0]
 **Attachments** | Pointer to [**[]AttachmentsParamInner**](AttachmentsParamInner.md) | Files embedded into the generated PDF as attachments. Only PDF and XML files are accepted. | [optional] 
 **Metadata** | Pointer to [**MetadataParam**](MetadataParam.md) |  | [optional] 
+**DisplayMode** | Pointer to [**DisplayModeParam**](DisplayModeParam.md) |  | [optional] 
 
 ## Methods
 
@@ -304,6 +305,31 @@ SetMetadata sets Metadata field to given value.
 `func (o *GenerateDocumentAsynchronousRequest) HasMetadata() bool`
 
 HasMetadata returns a boolean if a field has been set.
+
+### GetDisplayMode
+
+`func (o *GenerateDocumentAsynchronousRequest) GetDisplayMode() DisplayModeParam`
+
+GetDisplayMode returns the DisplayMode field if non-nil, zero value otherwise.
+
+### GetDisplayModeOk
+
+`func (o *GenerateDocumentAsynchronousRequest) GetDisplayModeOk() (*DisplayModeParam, bool)`
+
+GetDisplayModeOk returns a tuple with the DisplayMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayMode
+
+`func (o *GenerateDocumentAsynchronousRequest) SetDisplayMode(v DisplayModeParam)`
+
+SetDisplayMode sets DisplayMode field to given value.
+
+### HasDisplayMode
+
+`func (o *GenerateDocumentAsynchronousRequest) HasDisplayMode() bool`
+
+HasDisplayMode returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
